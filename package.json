@@ -3,7 +3,7 @@
  "name": "frontend-v2",
  "workspaces": {
   "packages": [
-   "packages/container"
+   "packages/**"
   ]
  },
  "scripts": {

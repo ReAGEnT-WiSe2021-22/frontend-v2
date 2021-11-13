@@ -8,7 +8,9 @@
  },
  "scripts": {
    "new-wc": "./common/new-wc.sh",
-   "tsc": "yarn workspaces run tsc"
+   "tsc": "yarn workspaces run tsc",
+   "build": "./common/build.sh",
+   "prebuild": "mkdir ./packages/build"
  },
  "devDependencies": {
   "typescript": "4.4.4"

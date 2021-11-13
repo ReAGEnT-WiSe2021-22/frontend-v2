@@ -6,7 +6,9 @@
    "packages/container"
   ]
  },
- "scripts": {},
+ "scripts": {
+  "new-wc": "./common/new-wc.sh"
+ },
  "devDependencies": {
   "typescript": "4.4.4"
  }

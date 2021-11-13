@@ -7,18 +7,18 @@ module.exports = {
   extends: ['plugin:react/recommended', 'airbnb'],
   parser: '@typescript-eslint/parser',
   /**
-  * Manual web-components loading configuration
-  */
+   * Manual web-components loading configuration
+   */
   // ignorePatterns: ['**/wc/**'],
   // ignorePatterns: ['**/wc/**.js'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
+    ecmaVersion: 16,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'import', 'simple-import-sort'],
+  plugins: ['react', '@typescript-eslint', 'import'],
   rules: {
     'import/extensions': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
@@ -33,17 +33,18 @@ module.exports = {
     'no-shadow': 0,
     indent: 'off',
     '@typescript-eslint/indent': ['error', 2],
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
+    'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
+    // 'simple-import-sort/imports': 'error',
+    // 'simple-import-sort/exports': 'error',
   },
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     'import/resolver': {
-      typescript: {
-        alwaysTryTypes: true,
-        project: 'tsconfig.json',
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        moduleDirectory: ['node_modules', 'src/'],
       },
     },
   },

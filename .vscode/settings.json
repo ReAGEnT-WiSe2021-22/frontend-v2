@@ -1,5 +1,6 @@
 {
  "eslint.workingDirectories": [
   "packages/container"
- ]
+ ],
+ "eslint.packageManager": "yarn"
 }

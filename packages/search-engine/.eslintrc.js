@@ -34,6 +34,7 @@ module.exports = {
     indent: 'off',
     '@typescript-eslint/indent': ['error', 2],
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
+    'import/prefer-default-export': 0,
     // 'simple-import-sort/imports': 'error',
     // 'simple-import-sort/exports': 'error',
   },

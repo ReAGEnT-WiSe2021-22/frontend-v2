@@ -1,18 +1,20 @@
 {
- "private": true,
- "name": "frontend-v2",
- "workspaces": {
-  "packages": [
-   "packages/**"
-  ]
- },
- "scripts": {
-   "new-wc": "./common/new-wc.sh",
-   "tsc": "yarn workspaces run tsc",
-   "build": "./common/build.sh",
-   "prebuild": "mkdir ./packages/build"
- },
- "devDependencies": {
-  "typescript": "4.4.4"
- }
+  "private": true,
+  "name": "frontend-v2",
+  "workspaces": {
+    "packages": [
+      "packages/**"
+    ]
+  },
+  "scripts": {
+    "new-wc": "./common/new-wc.sh",
+    "tsc": "yarn workspaces run tsc",
+    "build": "./common/build.sh",
+    "build:all": "./common/build-all.sh",
+    "prebuild": "if [ ! -d ./packages/build ]; then mkdir ./packages/build; fi",
+    "test": "./common/test.sh"
+  },
+  "devDependencies": {
+    "typescript": "4.4.4"
+  }
 }

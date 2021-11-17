@@ -12,7 +12,6 @@
 import SearchEngine from './direflow-components/search-engine';
 
 SearchEngine.then((element) => {
-
   /**
    * Access DOM node when it's mounted
    */

@@ -1,22 +1,17 @@
-import { DireflowComponent } from 'direflow-component'
-import { createServer } from 'miragejs'
-import App from './App'
+import { DireflowComponent } from 'direflow-component';
+import { createMockServer } from '../../utils/server';
+import App from './App';
 
 const createSearchEngine = () => {
-  if (process.env.NODE_ENV !== 'production') {
-    createServer({
-      routes() {
-        this.get("/api/search-tweets", () => ({
-          tweets: [
-            { id: 1, text: "Aus cuyy" },
-            { id: 2, text: "Malem malem pengen McD..." },
-            { id: 3, text: "Jokowi pulang aja!!" },
-          ],
-        }))
-      },
-    })
+  const URL = process.env.REACT_APP_API_BASE_URL;
+  const isProduction = true;
+
+  if (!isProduction) {
+    createMockServer();
   }
-  
+
+  (window as any).baseUrl = isProduction && URL ? URL : '';
+
   return DireflowComponent.create({
     component: App,
     configuration: {
@@ -32,7 +27,7 @@ const createSearchEngine = () => {
         },
       },
     ],
-  })
-}
+  });
+};
 
-export default createSearchEngine()
+export default createSearchEngine();

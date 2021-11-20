@@ -20,6 +20,7 @@ const App = () => (
       >
         Learn React
       </a>
+      <search-engine />
     </header>
   </div>
 );

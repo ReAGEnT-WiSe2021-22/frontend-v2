@@ -9,8 +9,7 @@ module.exports = {
   /**
    * Manual web-components loading configuration
    */
-  // ignorePatterns: ['**/wc/**'],
-  // ignorePatterns: ['**/wc/**.js'],
+  ignorePatterns: ['**/wc/**.js'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -34,6 +33,8 @@ module.exports = {
     indent: 'off',
     '@typescript-eslint/indent': ['error', 2],
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
+    'import/no-extraneous-dependencies': 0,
+    'import/prefer-default-export': 0,
     // 'simple-import-sort/imports': 'error',
     // 'simple-import-sort/exports': 'error',
   },

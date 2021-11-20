@@ -9,7 +9,3 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div)
 })
 
-it('matches snapshot as expected', () => {
-  const renderTree = renderer.create(<App />).toJSON()
-  expect(renderTree).toMatchSnapshot()
-})

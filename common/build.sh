@@ -3,6 +3,12 @@
 home_dir=`pwd` 
 folder=$1
 
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied"
+    exit 1
+fi
+
 if [ -d "$home_dir/packages/$folder" ]; then
  cd ./packages/$folder
  npm run build

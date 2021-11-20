@@ -21,7 +21,7 @@ if [ -d "$home_dir/packages/$folder" ]; then
   cp ./packages/$folder/build/direflowBundle.js $bundle_path
 
   echo "Build file copied to $bundle_path"
- elif 
+ else 
   echo "Container built"
  fi
     

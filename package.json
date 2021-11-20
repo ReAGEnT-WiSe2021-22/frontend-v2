@@ -8,7 +8,7 @@
     "new-wc": "./common/new-wc.sh",
     "tsc": "yarn workspaces run tsc",
     "build": "./common/build.sh",
-    "build:all": "./common/build-all.sh",
+    "build:all": "./common/build-all.sh && ./common/build.sh container",
     "prebuild": "[ ! -d ./packages/container/src/wc ] && mkdir ./packages/container/src/wc || exit 0",
     "test": "./common/test.sh"
   },

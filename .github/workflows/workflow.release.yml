@@ -22,7 +22,10 @@ jobs:
           cache-dependency-path: '**/yarn.lock'
           
       - name: Install dependencies
-        run: yarn install --frozen-lockfile 
+        run: yarn install --frozen-lockfile
+      
+      - name: Build Project
+        run: yarn build:all
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

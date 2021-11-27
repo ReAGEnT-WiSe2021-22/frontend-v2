@@ -14,7 +14,7 @@ import { Layout } from './layout';
       <BrowserRouter>
         <Layout>
           <Routes>
-            <Route path="/frontend-v2" element={<App />} />
+            <Route path="/frontend-v2/" element={<App />} />
             {microfrontends.map((mf) => {
               const Element = mf;
               return <Route key={mf} path={`/frontend-v2/${mf}`} element={<Element />} />;

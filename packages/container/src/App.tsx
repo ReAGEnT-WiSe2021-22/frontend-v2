@@ -21,6 +21,7 @@ const App = () => (
         Learn React
       </a>
       <search-engine />
+      <party-reputation />
     </header>
   </div>
 );

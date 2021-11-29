@@ -11,8 +11,7 @@
 
 import PartyReputation from './direflow-components/party-reputation';
 
-PartyReputation.then((element) => {
-
+PartyReputation().then((element) => {
   /**
    * Access DOM node when it's mounted
    */

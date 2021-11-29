@@ -1,4 +1,4 @@
-const microfrontends: string[] = ['search-engine'];
+const microfrontends: string[] = ['search-engine', 'party-reputation'];
 
 export const importWc = () => Promise.all(microfrontends.map(async (appName) => {
   try {

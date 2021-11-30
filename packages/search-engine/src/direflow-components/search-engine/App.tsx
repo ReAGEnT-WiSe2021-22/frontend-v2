@@ -1,5 +1,5 @@
 import { Styled } from 'direflow-component';
-import React, { FC } from 'react';
+import React from 'react';
 import { useFetch } from '../../hooks/use-fetch';
 import styles from './App.css';
 
@@ -8,7 +8,7 @@ export interface Tweet {
   text: string
 }
 
-const App: FC = () => {
+const App: React.FunctionComponent = () => {
   const [tweets, setTweets] = React.useState<Tweet[]>();
   const { fetchApi } = useFetch();
 
@@ -16,7 +16,7 @@ const App: FC = () => {
     fetchApi('api/search-tweets')
       .then((res) => res.json())
       .then((json) => setTweets(json.tweets));
-  }, []);
+  }, [fetchApi]);
 
   return (
     <Styled styles={styles}>

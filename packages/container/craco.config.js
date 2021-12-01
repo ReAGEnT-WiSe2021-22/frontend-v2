@@ -1,3 +1,5 @@
+const CracoSwcPlugin = require('craco-swc');
+
 // craco.config.js
 module.exports = {
   style: {
@@ -10,4 +12,23 @@ module.exports = {
       ],
     },
   },
+  plugins: [
+    {
+      plugin: CracoSwcPlugin,
+      options: {
+        swcLoaderOptions: {
+          jsc: {
+            externalHelpers: true,
+            target: 'es5',
+            parser: {
+              syntax: 'typescript',
+              tsx: true,
+              decorators: false,
+              dynamicImport: true,
+            },
+          },
+        },
+      },
+    },
+  ],
 };

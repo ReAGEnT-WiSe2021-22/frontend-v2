@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { importWc, microfrontends } from './import-wc';
 import { setup } from './setup';
 import { Layout } from './layout';
 
 import './index.css';
-
 
 (async () => {
   await importWc();

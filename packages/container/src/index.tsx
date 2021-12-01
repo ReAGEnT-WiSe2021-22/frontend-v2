@@ -1,10 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { importWc } from './import-wc';
+import { importWc, microfrontends } from './import-wc';
 import { setup } from './setup';
+import { Layout } from './layout';
+
+import './index.css';
+
 
 (async () => {
   await importWc();
@@ -12,10 +17,18 @@ import { setup } from './setup';
 
   ReactDOM.render(
     <React.StrictMode>
-      <App />
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/frontend-v2/" element={<App />} />
+            {microfrontends.map((mf) => {
+              const Element = mf;
+              return <Route key={mf} path={`/frontend-v2/${mf}`} element={<Element />} />;
+            })}
+          </Routes>
+        </Layout>
+      </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root'),
   );
-
-  reportWebVitals();
 })();

@@ -2,7 +2,7 @@
   "name": "container",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://reagent-wise2021-22.github.io/frontend-v2/",
+  "homepage": "https://reagent-wise2021-22.github.io/",
   "dependencies": {
     "@craco/craco": "^6.4.2",
     "classnames": "^2.3.1",

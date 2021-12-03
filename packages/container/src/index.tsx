@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 import { importWc, microfrontends } from './import-wc';
-import { setup } from './setup';
-import { Layout } from './layout';
-
 import './index.css';
+import { Layout } from './layout';
+import { setup } from './setup';
 
 (async () => {
   await importWc();
@@ -15,17 +13,17 @@ import './index.css';
 
   ReactDOM.render(
     <React.StrictMode>
-      <BrowserRouter>
+      <HashRouter>
         <Layout>
           <Routes>
-            <Route path="/frontend-v2/" element={<App />} />
+            <Route path="/" element={<App />} />
             {microfrontends.map((mf) => {
               const Element = mf;
-              return <Route key={mf} path={`/frontend-v2/${mf}`} element={<Element />} />;
+              return <Route key={mf} path={`/${mf}`} element={<Element />} />;
             })}
           </Routes>
         </Layout>
-      </BrowserRouter>
+      </HashRouter>
     </React.StrictMode>,
     document.getElementById('root'),
   );

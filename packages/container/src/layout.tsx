@@ -1,5 +1,6 @@
+import cx from 'classnames';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { microfrontends } from './import-wc';
 
 const capitalizeFirstLetter = (word: string) => word.charAt(0).toUpperCase() + word.slice(1);
@@ -7,14 +8,15 @@ const titleCase = (title: string) => title.split('-').map((word) => capitalizeFi
 
 const Header: React.FunctionComponent = () => (
   <nav className="flex p-4 bg-indigo-400 text-indigo-100">
-    {['home', ...microfrontends].map((mf) => {
-      const path = `/frontend-v2/${mf === 'home' ? '' : mf}`;
-      return (
-        <Link className="hover:text-white mr-4" key={mf} to={path}>
-          {titleCase(mf)}
-        </Link>
-      );
-    })}
+    {['home', ...microfrontends].map((mf) => (
+      <NavLink
+        key={mf}
+        className={({ isActive }) => cx('hover:text-white mr-4', { 'text-white': isActive })}
+        to={`/${mf === 'home' ? '' : mf}`}
+      >
+        {titleCase(mf)}
+      </NavLink>
+    ))}
   </nav>
 );
 

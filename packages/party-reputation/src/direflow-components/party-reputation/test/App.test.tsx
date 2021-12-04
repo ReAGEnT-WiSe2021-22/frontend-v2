@@ -3,18 +3,13 @@ import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import App from '../App';
 
-const reactProps = {
-  componentTitle: 'Component Test',
-  sampleList: ['Mock', 'Test', 'Data'],
-};
-
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App {...reactProps} />, div);
+  ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
 it.skip('matches snapshot as expected', () => {
-  const renderTree = renderer.create(<App {...reactProps} />).toJSON();
+  const renderTree = renderer.create(<App />).toJSON();
   expect(renderTree).toMatchSnapshot();
 });

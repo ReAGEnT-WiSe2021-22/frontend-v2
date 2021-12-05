@@ -11,8 +11,11 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import { useFetch } from '../../../hooks/useFetch';
 import { ReputationModelsContext } from '../../../hooks/useReputationModels';
 import { ActivePartyContext } from '../../../hooks/useActiveParty';
-import Tabs from './Layout/Tabs';
 import { ReputationModel } from '../../../types';
+import { HOME } from '../../../const';
+
+import Tabs from './Layout/Tabs';
+import PartyView from './Layout/PartyView';
 
 const Wrapper: FC = ({ children }) => (
   <Stack paddingX={12} paddingY={8}>
@@ -43,7 +46,7 @@ const APIWrapper = (): JSX.Element => {
       const response = await apiRequest('/api/party-reputation');
       if (response.data) {
         setReputationModels(response.data.data as ReputationModel[]);
-        setActiveParty('home');
+        setActiveParty(HOME);
       }
     } catch (e) {
       setHasError(true);
@@ -106,6 +109,7 @@ const APIWrapper = (): JSX.Element => {
         <Wrapper>
           <Typography variant="h3">Party Reputation</Typography>
           <Tabs />
+          <PartyView />
         </Wrapper>
       </ActivePartyContext.Provider>
     </ReputationModelsContext.Provider>

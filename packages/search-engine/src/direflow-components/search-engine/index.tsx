@@ -16,6 +16,7 @@ const createSearchEngine = () => {
     component: App,
     configuration: {
       tagname: 'search-engine',
+      useShadow: false,
     },
     plugins: [
       {

@@ -1,34 +1,121 @@
-import { Styled } from 'direflow-component';
 import React, { FC } from 'react';
-import { useFetch } from '../../hooks/use-fetch';
-import styles from './App.css';
+import './App.css';
+import { ReactiveBase, DataSearch, DateRange, MultiDataList } from '@appbaseio/reactivesearch';
 
-export interface Tweet {
-  id: number
-  text: string
-}
 
 const App: FC = () => {
-  const [tweets, setTweets] = React.useState<Tweet[]>();
-  const { fetchApi } = useFetch();
-
-  React.useEffect(() => {
-    fetchApi('api/search-tweets')
-      .then((res) => res.json())
-      .then((json) => setTweets(json.tweets));
-  }, []);
-
   return (
-    <Styled styles={styles}>
-      <div className="app">
-        {tweets && tweets.map((tweet) => (
-          <div key={tweet.id}>
-            <span style={{ marginRight: '1rem' }}>{tweet.id}</span>
-            <span>{tweet.text}</span>
-          </div>
-        ))}
+    <ReactiveBase
+          app="search-engine"
+          url="http://twint.f4.htw-berlin.de:9200/"
+          enableAppbase
+          
+
+          theme={{
+            typography: {
+               fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif',fontSize: "16px"
+            },
+            colors: {
+                  textColor: "#fff",
+                  backgroundColor: "#212121",
+                  primaryTextColor: "#fff",
+                  primaryColor: "#2196F3",
+                  titleColor: "#fff",
+                  alertColor: "#d9534f",
+                  borderColor: "#666"
+            }
+          }}
+    >
+      {/*Search-Bar*/}
+      <div className="navbar">
+        
+        <div className="logo-container">
+          //some logo here
+        </div>
+         
+        
+
+        <div className="search-container">
+          <DataSearch            
+            componentId="mainSearch"            
+            dataField={["party","party.search", "tweets", "tweets.search"]}                      
+            className="search-bar"            
+            queryFormat="and"            
+            placeholder="Search here..."
+            innerClass={{
+              "input": "searchbox",
+              "list": "suggestionlist"
+            }}                  
+          />
+        </div>
       </div>
-    </Styled>
+      
+      
+      {/*Filters*/}
+      <div className="left-bar">
+        <div>
+          <div className="filter-heading center">
+            <b>
+              {" "}
+              <i className="fa fa-calendar" /> Party Filter{" "}
+            </b>
+          </div> 
+
+          <MultiDataList
+              componentId="party-list"
+              dataField="party"
+              data={[
+                  {
+                      label: 'CDU',
+                      value: 'CDU',
+                  },
+                  {
+                      label: 'AFD',
+                      value: 'AFD',
+                  },
+                  {
+                      label: 'Grüne',
+                      value: 'Grüne',
+                  },
+                  {
+                    label: 'Linke',
+                    value: 'Linke',
+                },
+              ]}
+             
+              queryFormat="or"
+              selectAllLabel="All Party"
+              showCheckbox={true}
+              showSearch={true}
+              placeholder="Search for a party"
+              react={{
+                and: [
+                  "mainSearch",
+                  "results",
+                  "date-filter",
+                ]
+              }}
+    
+          />
+
+            
+          <hr className="blue" />
+
+          <div className="filter-heading center">
+            <b>
+              {" "}
+              <i className="fa fa-calendar" /> Tweet Date{" "}
+            </b>
+          </div>
+          <DateRange
+            componentId="date-filter"
+            dataField="Tweet_date"
+            className="datePicker"
+          />
+        </div>
+      </div>
+    
+    </ReactiveBase>
   );
 };
 

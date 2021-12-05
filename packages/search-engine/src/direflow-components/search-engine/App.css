@@ -1,4 +1,4 @@
-.main-container {
+/* .main-container {
   margin: 0 10px;
 }
 
@@ -9,7 +9,7 @@
   flex-direction: row;
   -ms-flex-pack: center;
   justify-content: center;
-}
+} */
 
 a:link {
   text-decoration: none;
@@ -82,6 +82,78 @@ hr {
   margin-bottom: 10px;
 }
 
+.list-input {
+  border: 2px solid #86ddf8;
+}
+
+.filter-heading {
+  color: #86ddf8;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+
 .datePicker {
   color: #000;
+}
+
+.list-item {
+  font-size: 13px;
+  color: #cdcdcd;
+  margin-left: 2px;
+}
+
+.list-item:hover {
+  background-color: #4d4d4d;
+  color: #fff;
+}
+
+.blue {
+  background-color: #86ddf8;
+  height: 1px;
+}
+
+/* styling for scrollbar */
+
+::-webkit-scrollbar {
+  width: 13px;
+  height: 13px;
+}
+
+::-webkit-scrollbar:hover {
+  height: 18px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #151716;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 50px;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0, #4d4d4d),
+    color-stop(100%, #333)
+  );
+  border: 1px solid #0d0d0d;
+  border-top: 1px solid #666;
+  border-left: 1px solid #666;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  width: 50px;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, #4d4d4d),
+    color-stop(100%, #333)
+  );
+  border: 1px solid #1f1f1f;
+  border-top: 1px solid #666;
+  border-left: 1px solid #666;
 }

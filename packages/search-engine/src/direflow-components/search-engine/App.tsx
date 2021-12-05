@@ -1,10 +1,30 @@
 import React, { FC } from 'react';
-import './App.css';
+import styles from './App.css';
+import { Styled } from 'direflow-component'
 import { ReactiveBase, DataSearch, DateRange, MultiDataList } from '@appbaseio/reactivesearch';
 
+const partyNames = [
+  {
+      label: 'CDU',
+      value: 'CDU',
+  },
+  {
+      label: 'AFD',
+      value: 'AFD',
+  },
+  {
+      label: 'Grüne',
+      value: 'Grüne',
+  },
+  {
+    label: 'Linke',
+    value: 'Linke',
+  },
+]
 
 const App: FC = () => {
   return (
+    <Styled styles={styles}>
     <ReactiveBase
           app="search-engine"
           url="http://twint.f4.htw-berlin.de:9200/"
@@ -26,15 +46,12 @@ const App: FC = () => {
             }
           }}
     >
-      {/*Search-Bar*/}
+      
       <div className="navbar">
-        
         <div className="logo-container">
-          //some logo here
+        
         </div>
          
-        
-
         <div className="search-container">
           <DataSearch            
             componentId="mainSearch"            
@@ -51,7 +68,7 @@ const App: FC = () => {
       </div>
       
       
-      {/*Filters*/}
+      
       <div className="left-bar">
         <div>
           <div className="filter-heading center">
@@ -64,25 +81,7 @@ const App: FC = () => {
           <MultiDataList
               componentId="party-list"
               dataField="party"
-              data={[
-                  {
-                      label: 'CDU',
-                      value: 'CDU',
-                  },
-                  {
-                      label: 'AFD',
-                      value: 'AFD',
-                  },
-                  {
-                      label: 'Grüne',
-                      value: 'Grüne',
-                  },
-                  {
-                    label: 'Linke',
-                    value: 'Linke',
-                },
-              ]}
-             
+              data={partyNames}
               queryFormat="or"
               selectAllLabel="All Party"
               showCheckbox={true}
@@ -116,6 +115,7 @@ const App: FC = () => {
       </div>
     
     </ReactiveBase>
+    </Styled>
   );
 };
 

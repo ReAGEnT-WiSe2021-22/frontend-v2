@@ -10,8 +10,11 @@ export enum Party {
 }
 
 export type GeneratedTweet = {
-  party: Party,
-  createdAt: Date,
+  id: string,
+  text: string,
+  name: string,
   userId: string,
   username: string,
+  party: Party,
+  createdDate: Date,
 }

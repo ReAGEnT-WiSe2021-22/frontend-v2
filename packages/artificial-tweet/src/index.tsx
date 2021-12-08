@@ -11,7 +11,7 @@
 
 import ArtificialTweet from './direflow-components/artificial-tweet';
 
-ArtificialTweet.then((element) => {
+ArtificialTweet().then((element) => {
   /**
    * Access DOM node when it's mounted
    */

@@ -19,6 +19,18 @@ export const initMockServer = () => {
           { id: 3, text: 'Jokowi pulang aja!!' },
         ],
       }));
+
+      this.get('/api/artificial-tweets', () => ({
+        data: {
+          id: '97cda64d-3551-4510-974b-bd7c01fb0cb4',
+          text: 'SPD macht geile Scheiße!',
+          userId: '96cda74d-3541-1923-914p-bd7c01fb0pl9',
+          username: 'sunanmau5',
+          name: 'Sunan Regi',
+          party: 'SPD',
+          createdDate: new Date(),
+        },
+      }));
     },
   });
 };

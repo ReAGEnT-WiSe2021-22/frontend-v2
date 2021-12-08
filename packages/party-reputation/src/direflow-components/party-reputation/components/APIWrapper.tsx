@@ -18,7 +18,7 @@ import Tabs from './Layout/Tabs';
 import PartyView from './Layout/PartyView';
 
 const Wrapper: FC = ({ children }) => (
-  <Stack paddingX={12} paddingY={8}>
+  <Stack padding={6}>
     {children}
   </Stack>
 );

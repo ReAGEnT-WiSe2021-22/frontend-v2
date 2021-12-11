@@ -19,3 +19,5 @@ export enum Environment {
   staging = 'staging',
   production = 'production'
 }
+
+export type GenericObject = { [key: string]: string }

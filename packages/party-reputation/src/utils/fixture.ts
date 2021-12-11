@@ -12,7 +12,9 @@ export const createMockDatas = (): ReputationModel[] => {
     const datas = createArray(NUM_OF_DATAS);
     return {
       party,
-      dates: [...datas].map(() => faker.date.recent().toString()),
+      dates: [...datas]
+        .map(() => faker.date.past().toString())
+        .sort((a, b) => new Date(a).getTime() - new Date(b).getTime()),
       sentiments: [...datas].map(() => Math.random()),
     };
   });

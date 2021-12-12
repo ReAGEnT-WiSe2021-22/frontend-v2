@@ -7,7 +7,7 @@ import {
   SxProps,
   TextField,
 } from '@mui/material';
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 
 type MultiInputFieldProps = {
   sx?: SxProps
@@ -26,29 +26,26 @@ export const MultiInputField: React.FunctionComponent<MultiInputFieldProps> = ({
   onChange,
   placeholder,
 }) => {
-  const onNew = useCallback((value: string) => {
-    onChange([...(values || []), value]);
-  }, [onChange, values]);
-
-  const onRemove = useCallback((value: string) => {
+  const onNew = (value: string) => onChange([...(values || []), value]);
+  const onRemove = (value: string) => {
     const newValues = [...values];
     newValues.splice(newValues.indexOf(value), 1);
     onChange(newValues);
-  }, [onChange, values]);
+  };
 
   const [value, setValue] = useState<string>('');
 
-  const handleClick = useCallback((e) => {
+  const handleClick = (e: React.BaseSyntheticEvent) => {
     if (value.length >= 3) {
       e.preventDefault();
       onNew(value);
       setValue('');
     }
-  }, [onNew, value]);
+  };
 
-  const keyPressed = useCallback((ev) => {
-    if (ev.charCode === 13) handleClick(ev);
-  }, [handleClick]);
+  const keyPressed = (e: React.KeyboardEvent) => {
+    if (e.charCode === 13) handleClick(e);
+  };
 
   return (
     <Stack sx={sx}>

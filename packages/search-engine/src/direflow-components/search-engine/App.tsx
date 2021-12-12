@@ -1,113 +1,112 @@
-import { Styled } from 'direflow-component'
-import styles from './App.css';
+import { Styled } from 'direflow-component';
 import React, { FC } from 'react';
-import { ReactiveBase, DataSearch, DateRange, MultiDataList } from '@appbaseio/reactivesearch';
+import {
+  ReactiveBase, DataSearch, DateRange, MultiDataList,
+} from '@appbaseio/reactivesearch';
+import styles from './App.css';
 
 const partyNames = [
   {
-      label: 'CDU',
-      value: 'CDU',
+    label: 'CDU',
+    value: 'CDU',
   },
   {
-      label: 'AFD',
-      value: 'AFD',
+    label: 'AFD',
+    value: 'AFD',
   },
   {
-      label: 'Grüne',
-      value: 'Grüne',
+    label: 'Grüne',
+    value: 'Grüne',
   },
   {
     label: 'Linke',
     value: 'Linke',
   },
-]
+];
 
-const App: FC = () => {
-  return (
-    <Styled styles={styles}>
+const App: FC = () => (
+  <Styled styles={styles}>
     <ReactiveBase
-          app="search-engine"
-          url="http://twint.f4.htw-berlin.de:9200/"
-          enableAppbase
-          
+      app="search-engine"
+      url="http://twint.f4.htw-berlin.de:9200/"
+      enableAppbase
 
-          theme={{
-            typography: {
-               fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif',fontSize: "16px"
-            },
-            colors: {
-                  textColor: "#fff",
-                  backgroundColor: "#212121",
-                  primaryTextColor: "#fff",
-                  primaryColor: "#2196F3",
-                  titleColor: "#fff",
-                  alertColor: "#d9534f",
-                  borderColor: "#666"
-            }
-          }}
+      theme={{
+        typography: {
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif', fontSize: '16px',
+        },
+        colors: {
+          textColor: '#fff',
+          backgroundColor: '#212121',
+          primaryTextColor: '#fff',
+          primaryColor: '#2196F3',
+          titleColor: '#fff',
+          alertColor: '#d9534f',
+          borderColor: '#666',
+        },
+      }}
     >
-      
+
       <div className="navbar">
-        
-        <div className="logo-container">
-          
-        </div>
-         
-        
+
+        <div className="logo-container" />
 
         <div className="search-container">
-          <DataSearch            
-            componentId="mainSearch"            
-            dataField={["party","party.search", "tweets", "tweets.search"]}                      
-            className="search-bar"            
-            queryFormat="and"            
+          <DataSearch
+            componentId="mainSearch"
+            dataField={['party', 'party.search', 'tweets', 'tweets.search']}
+            className="search-bar"
+            queryFormat="and"
             placeholder="Search here..."
             innerClass={{
-              "input": "searchbox",
-              "list": "suggestionlist"
-            }}                  
+              input: 'searchbox',
+              list: 'suggestionlist',
+            }}
           />
         </div>
       </div>
-      
-      
-      {/*Filters*/}
+
+      {/* Filters */}
       <div className="left-bar">
         <div>
           <div className="filter-heading center">
             <b>
-              {" "}
-              <i className="fa fa-calendar" /> Party Filter{" "}
+              {' '}
+              <i className="fa fa-calendar" />
+              {' '}
+              Party Filter
+              {' '}
             </b>
-          </div> 
+          </div>
 
           <MultiDataList
-              componentId="party-list"
-              dataField="party"
-              data={partyNames}
-             
-              queryFormat="or"
-              selectAllLabel="All Party"
-              showCheckbox={true}
-              showSearch={true}
-              placeholder="Search for a party"
-              react={{
-                and: [
-                  "mainSearch",
-                  "results",
-                  "date-filter",
-                ]
-              }}
-    
+            componentId="party-list"
+            dataField="party"
+            data={partyNames}
+
+            queryFormat="or"
+            selectAllLabel="All Party"
+            showCheckbox
+            showSearch
+            placeholder="Search for a party"
+            react={{
+              and: [
+                'mainSearch',
+                'results',
+                'date-filter',
+              ],
+            }}
           />
 
-            
           <hr className="blue" />
 
           <div className="filter-heading center">
             <b>
-              {" "}
-              <i className="fa fa-calendar" /> Tweet Date{" "}
+              {' '}
+              <i className="fa fa-calendar" />
+              {' '}
+              Tweet Date
+              {' '}
             </b>
           </div>
           <DateRange
@@ -117,10 +116,9 @@ const App: FC = () => {
           />
         </div>
       </div>
-    
+
     </ReactiveBase>
-    </Styled>
-  );
-};
+  </Styled>
+);
 
 export default App;

@@ -56,7 +56,7 @@ const App: FC = () => (
         <div className="search-container">
           <DataSearch
             componentId="mainSearch"
-            dataField={['partei', 'party.search', 'tweet', 'tweet.search']}
+            dataField={['partei', 'partei.search', 'tweet', 'tweet.search']}
             className="search-bar"
             queryFormat="and"
             placeholder="Search here..."

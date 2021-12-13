@@ -1,7 +1,9 @@
 import { Styled } from 'direflow-component'
 import styles from './App.css';
 import React, { FC } from 'react';
-import { ReactiveBase, DataSearch, DateRange, MultiDataList } from '@appbaseio/reactivesearch';
+import { ReactiveBase, DataSearch, DateRange, 
+  MultiDataList, ReactiveList } 
+  from '@appbaseio/reactivesearch';
 
 const partyNames = [
   {
@@ -14,7 +16,7 @@ const partyNames = [
   },
   {
       label: 'Grüne',
-      value: 'Grüne',
+      value: 'Gruene',
   },
   {
     label: 'Linke',
@@ -26,9 +28,9 @@ const App: FC = () => {
   return (
     <Styled styles={styles}>
     <ReactiveBase
-          app="search-engine"
+          app="tweets"
           url="http://twint.f4.htw-berlin.de:9200/"
-          enableAppbase
+          enableAppbase={false}
           
 
           theme={{
@@ -58,7 +60,7 @@ const App: FC = () => {
         <div className="search-container">
           <DataSearch            
             componentId="mainSearch"            
-            dataField={["party","party.search", "tweets", "tweets.search"]}                      
+            dataField={["partei", "tweet"]}                      
             className="search-bar"            
             queryFormat="and"            
             placeholder="Search here..."
@@ -70,54 +72,81 @@ const App: FC = () => {
         </div>
       </div>
       
+      <div className="res-container">
+        <div className="left-bar">
+          <div>
+            <div className="filter-heading center">
+              <b>
+                {" "}
+                <i className="fa fa-calendar" /> Party Filter{" "}
+              </b>
+            </div> 
+
+            <MultiDataList
+                componentId="party-filter"
+                dataField="partei"
+                data={partyNames}
+              
+                queryFormat="or"
+                selectAllLabel="All Party"
+                showCheckbox={true}
+                showSearch={true}
+                placeholder="Search for a party"
+                react={{
+                  and: [
+                    "mainSearch",
+                    "results",
+                    "date-filter",
+                  ]
+                }}
       
-      {/*Filters*/}
-      <div className="left-bar">
-        <div>
-          <div className="filter-heading center">
-            <b>
-              {" "}
-              <i className="fa fa-calendar" /> Party Filter{" "}
-            </b>
-          </div> 
+            />
 
-          <MultiDataList
-              componentId="party-list"
-              dataField="party"
-              data={partyNames}
-             
-              queryFormat="or"
-              selectAllLabel="All Party"
-              showCheckbox={true}
-              showSearch={true}
-              placeholder="Search for a party"
-              react={{
-                and: [
-                  "mainSearch",
-                  "results",
-                  "date-filter",
-                ]
-              }}
-    
-          />
+              
+            <hr className="blue" />
 
-            
-          <hr className="blue" />
-
-          <div className="filter-heading center">
-            <b>
-              {" "}
-              <i className="fa fa-calendar" /> Tweet Date{" "}
-            </b>
+            {/* <div className="filter-heading center">
+              <b>
+                {" "}
+                <i className="fa fa-calendar" /> Tweet Date{" "}
+              </b>
+            </div>
+            <DateRange
+              componentId="date-filter"
+              dataField="Tweet_date"
+              className="datePicker"
+            /> */}
           </div>
-          <DateRange
-            componentId="date-filter"
-            dataField="Tweet_date"
-            className="datePicker"
+        </div>
+        
+        <div className="result-list">
+          <ReactiveList
+            componentId="SearchResult"
+            dataField="tweet"
+            className="result-list"
+            react={{
+                and: ['party-filter', 'mainSearch'],
+            }}
+            renderItem={res => <div>{res.tweets}</div>}
+            pagination={true}
+            paginationAt="bottom"
+            pages={5}
+            size={10}
+            loader="Loading Results.."
+            onNoResults={"No results..."}
+            showResultStats={true}
+            renderResultStats={function(stats) {
+              return `Showing ${stats.displayedResults} of total ${stats.numberOfResults} in ${
+                  stats.time
+              } ms`;
+            }}
           />
         </div>
+        
       </div>
-    
+      
+      
+      
     </ReactiveBase>
     </Styled>
   );

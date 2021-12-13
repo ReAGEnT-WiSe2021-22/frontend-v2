@@ -27,6 +27,21 @@ hr {
   text-align: center;
 }
 
+/* styling for results */
+.res-container {
+  display: flex;
+}
+
+.result-list {
+  flex: 4,5;
+  width: 80%;
+  background-color: #212121;
+  color:white;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  padding: 0px 10px 10px 10px;
+}
+
 /* styling for header */
 
 .navbar {
@@ -62,21 +77,22 @@ hr {
 /* styling for left-sidebar */
 
 .left-bar {
+  flex: 1;
   -ms-flex-direction: column;
   flex-direction: column;
   width: 20%;
   background-color: #212121;
-  border: 2px solid #86ddf8;
-  -webkit-box-shadow: 9px 10px 20px -10px #86ddf8;
+  border: 2px solid #5643c2;
+  -webkit-box-shadow: 9px 10px 20px -10px #8d95dd;
   box-shadow: 9px 10px 20px -10px #86ddf8;
   border-radius: 5px;
   color: #fff;
   margin-left: 0;
-  min-width: 200px;
+  min-width: 150px;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   padding: 0px 10px 10px 10px;
-  margin-right: 15px;
+  margin-right: 1px;
   left: 0;
   margin-top: 4px;
   margin-bottom: 10px;

@@ -59,9 +59,25 @@ hr {
   border-radius: 3px;
 }
 
+/* styling for result view */
+.res-container {
+  display: flex;
+}
+
+.result-list{
+  flex: 4,5;
+  width: 80%;
+  color: #fff;
+  background-color: #212121;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  padding: 0px 10px 0px 10px;
+}
+
 /* styling for left-sidebar */
 
 .left-bar {
+  flex: 1;
   -ms-flex-direction: column;
   flex-direction: column;
   width: 20%;

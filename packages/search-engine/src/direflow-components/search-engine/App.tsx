@@ -2,7 +2,7 @@ import { Styled } from 'direflow-component';
 import React, { FC } from 'react';
 import {
   ReactiveBase, DataSearch, 
-  DateRange, MultiDataList,
+  MultiDataList,
   ReactiveList,
 } from '@appbaseio/reactivesearch';
 import styles from './App.css';
@@ -101,21 +101,6 @@ const App: FC = () => (
             />
 
             <hr className="blue" />
-
-            {/* <div className="filter-heading center">
-              <b>
-                {' '}
-                <i className="fa fa-calendar" />
-                {' '}
-                Tweet Date
-                {' '}
-              </b>
-            </div>
-            <DateRange
-              componentId="date-filter"
-              dataField="Tweet_date"
-              className="datePicker"
-            /> */}
           </div>
         </div>
 
@@ -131,8 +116,8 @@ const App: FC = () => (
               paginationAt='bottom'
               pages={5}
               size={10}
-              loader='Loading results'
-              onNoResults='No Results...'
+              loader='Loading results...'
+              onNoResults='No Results'
               showResultStats={true}
               renderResultStats={function(stats) {
                 return `Showing ${stats.displayedResults} 

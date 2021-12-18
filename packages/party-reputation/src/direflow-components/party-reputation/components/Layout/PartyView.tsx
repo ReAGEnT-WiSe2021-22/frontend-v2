@@ -2,6 +2,8 @@ import { Typography, Stack } from '@mui/material';
 import React, { useMemo, FC } from 'react';
 
 import SingleGraph from '../View/SingleGraph';
+import HomeGraph from '../View/HomeGraph';
+import Description from '../Description';
 import { HOME } from '../../../../const';
 import { useActiveParty } from '../../../../hooks/useActiveParty';
 import { useReputationModel } from '../../../../hooks/useReputationModels';
@@ -21,7 +23,9 @@ const PartyView = (): JSX.Element => {
     if (activeParty === HOME) {
       return (
         <Container>
-          <Typography variant="h4">Home view.</Typography>
+          <Typography variant="h4">Calulating a party reputation using sentiment analysis</Typography>
+          <Description />
+          <HomeGraph data={data} />
         </Container>
       );
     }
@@ -37,10 +41,12 @@ const PartyView = (): JSX.Element => {
     <Container>
       <Stack>
         <Typography variant="h5">
-          View for:
+          Sentiment analysis for
           {' '}
-          <Typography variant="h4">{activeParty}</Typography>
         </Typography>
+        {/* TODO: add party logo? */}
+        <Typography variant="h4">{activeParty}</Typography>
+
         <SingleGraph data={partyData} />
       </Stack>
     </Container>

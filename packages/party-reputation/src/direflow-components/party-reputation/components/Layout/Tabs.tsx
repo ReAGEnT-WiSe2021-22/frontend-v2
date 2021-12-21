@@ -10,15 +10,15 @@ const Tabs = (): JSX.Element => {
   const { data } = useReputationModel();
   const { activeParty, setActiveParty } = useActiveParty();
 
-  const getVariant = (party: string): ButtonProps['variant'] => (party === activeParty ? 'contained' : 'outlined');
+  const getVariant = (party: string): ButtonProps['variant'] => (party !== activeParty ? 'text' : 'outlined');
 
   return (
     <Stack direction="row" marginTop={4} spacing={1}>
       {[{ party: HOME }, ...data].map(({ party }) => (
         <Button
           key={party}
+          size="small"
           variant={getVariant(party)}
-          sx={{ borderRadius: 2.5 }}
           onClick={() => setActiveParty(party)}
         >
           {party}

@@ -11,8 +11,7 @@
 
 import PotentialParty from './direflow-components/potential-party';
 
-PotentialParty.then((element) => {
-
+PotentialParty().then((element) => {
   /**
    * Access DOM node when it's mounted
    */

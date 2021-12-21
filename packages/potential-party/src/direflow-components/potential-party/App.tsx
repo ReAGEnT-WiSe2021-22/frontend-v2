@@ -1,51 +1,16 @@
-import React, { FC, useContext } from 'react';
-import { EventContext, Styled } from 'direflow-component';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { Styled } from 'direflow-component';
+import React from 'react';
 import styles from './App.css';
+import { PotentialParty } from './components/potential-party';
 
-interface IProps {
-  componentTitle: string;
-  sampleList: string[];
-}
-
-const App: FC<IProps> = (props) => {
-  const dispatch = useContext(EventContext);
-
-  const handleClick = () => {
-    const event = new Event('my-event');
-    dispatch(event);
-  };
-
-  const renderSampleList = props.sampleList.map((sample: string) => (
-    <div key={sample} className='sample-text'>
-      → {sample}
-    </div>
-  ));
-
-  return (
-    <Styled styles={styles}>
-      <div className='app'>
-        <div className='top'>
-          <div className='header-image' />
-        </div>
-        <div className='bottom'>
-          <div className='header-title'>{props.componentTitle}</div>
-          <div>{renderSampleList}</div>
-          <button className='button' onClick={handleClick}>
-            Click me!
-          </button>
-        </div>
-      </div>
-    </Styled>
-  );
-};
-
-App.defaultProps = {
-  componentTitle: 'Potential Party',
-  sampleList: [
-    'Create with React',
-    'Build as Web Component',
-    'Use it anywhere!',
-  ],
-}
+const App: React.FunctionComponent = () => (
+  <Styled styles={styles}>
+    <PotentialParty />
+  </Styled>
+);
 
 export default App;

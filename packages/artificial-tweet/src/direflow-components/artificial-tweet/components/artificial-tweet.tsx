@@ -1,22 +1,23 @@
 import {
-  Box,
   Button,
   SelectChangeEvent,
   Stack,
   Typography,
 } from '@mui/material';
 import React, { useState } from 'react';
+import { useWindowSize } from '@vramework/hooks/dist/use-screen-size';
 import { GeneratedTweet, Party } from '../../../types';
 import { useFetch } from '../hooks/use-fetch';
-import { MultiInputField } from './fields/multi-input-field';
 import { SelectField } from './fields/select-field';
+import { CustomTextField } from './fields/text-field';
 import { Tweet } from './tweet';
 
 export const ArtificialTweet: React.FunctionComponent = () => {
   const { apiRequest } = useFetch();
   const [party, setParty] = useState<Party>(Party.parteilos);
-  const [keywords, setKeywords] = useState<string[]>([]);
+  const [promptText, setPromptText] = useState<string>('');
   const [generatedTweets, setGeneratedTweets] = useState<GeneratedTweet[]>([]);
+  const { width } = useWindowSize();
 
   const generateTweet = async () => {
     try {
@@ -32,7 +33,7 @@ export const ArtificialTweet: React.FunctionComponent = () => {
   return (
     <Stack padding={6}>
       <Typography variant="h3" marginBottom={4}>Generate Tweet</Typography>
-      <Box sx={{ mb: 4 }}>
+      <Stack direction={width > 1024 ? 'row' : 'column'} sx={{ mb: 4 }}>
         <SelectField
           sx={{ minWidth: 120 }}
           label="Party"
@@ -40,20 +41,20 @@ export const ArtificialTweet: React.FunctionComponent = () => {
           options={Party}
           onChange={(event: SelectChangeEvent) => setParty(event.target.value as Party)}
         />
-        <MultiInputField
-          sx={{ mt: 2, minWidth: 120 }}
-          label="Keyword"
-          placeholder="Enter keyword..."
-          values={keywords}
-          onChange={(newKeywords) => setKeywords(newKeywords)}
+        <CustomTextField
+          sx={width > 1024 ? { ml: 2, width: '100%' } : { mt: 2, width: '100%' }}
+          label="Text"
+          placeholder="Enter text..."
+          value={promptText}
+          onChange={(text: string) => setPromptText(text)}
         />
-      </Box>
+      </Stack>
       <Button
         sx={{ mb: 4 }}
         variant="contained"
         color="primary"
         onClick={generateTweet}
-        disabled={keywords.length < 1}
+        disabled={!promptText}
       >
         Generate
       </Button>

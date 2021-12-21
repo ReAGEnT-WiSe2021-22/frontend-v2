@@ -18,6 +18,7 @@
     "@types/node": "12.7.8",
     "@types/react": "16.9.3",
     "@types/react-dom": "16.9.1",
+    "@vramework/hooks": "^0.0.2",
     "direflow-component": "3.5.5",
     "direflow-scripts": "3.5.5",
     "react": "^17.0.2",
@@ -25,7 +26,6 @@
     "react-scripts": "3.4.1"
   },
   "devDependencies": {
-    "uuid": "^8.3.2",
     "@types/jest": "24.0.18",
     "@types/react-test-renderer": "16.9.1",
     "@types/uuid": "^8.3.3",
@@ -45,6 +45,7 @@
     "to-string-loader": "^1.1.6",
     "ts-loader": "^6.2.2",
     "typescript": "^3.9.3",
+    "uuid": "^8.3.2",
     "webpack-cli": "^3.3.11"
   },
   "eslintConfig": {

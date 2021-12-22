@@ -1,5 +1,5 @@
 import { DireflowComponent } from 'direflow-component';
-import { initMockServer } from './utils/mock-server';
+import { initMockServer } from '../../utils/mock-server';
 
 import App from './App';
 

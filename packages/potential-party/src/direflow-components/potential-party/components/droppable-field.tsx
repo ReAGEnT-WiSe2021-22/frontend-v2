@@ -24,9 +24,12 @@ export const DroppableField: React.FunctionComponent<{ onDrop: any }> = ({ onDro
   return (
     <Box
       sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         p: 8,
         border: '2px dashed',
-        borderRadius: '5px',
+        borderRadius: '0.5rem',
         borderColor: 'grey.400',
         backgroundColor,
         minWidth: 120,

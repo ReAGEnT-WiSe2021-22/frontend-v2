@@ -13093,6 +13093,11 @@ raf@^3.4.0, raf@^3.4.1:
   dependencies:
     performance-now "^2.1.0"
 
+random-ext@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/random-ext/-/random-ext-2.7.1.tgz#02c745a545a2dfd44a6ea0663c4452b000d80f3f"
+  integrity sha512-8Kqw6/uZhIeIMaHWGc9wB74umCQaOZRlh+e9q18oJ36UW2QPo1uNRsgAGNzG248xc5cfdyUyFuDM9+/Pq7FoZg==
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5, randombytes@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/randombytes/-/randombytes-2.1.0.tgz"

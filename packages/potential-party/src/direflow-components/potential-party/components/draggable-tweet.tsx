@@ -1,7 +1,7 @@
 import {
   Avatar,
   Box,
-  Stack,
+  Card,
   Typography,
 } from '@mui/material';
 import React from 'react';
@@ -19,31 +19,33 @@ export const DraggableTweet: React.FunctionComponent<{ tweet: Tweet }> = ({ twee
   }));
 
   return (
-    <Stack
-      direction="row"
+    <Card
       sx={{
+        display: 'flex',
         px: 1.5,
         py: 1,
-        border: 1,
-        borderColor: 'grey.400',
         borderRadius: 1,
-        backgroundColor: 'white',
         cursor: 'pointer',
         opacity: isDragging ? 0.4 : 1,
       }}
       ref={drag}
     >
       <Avatar sx={{ marginRight: '0.5rem' }}>{tweet.name.charAt(0)}</Avatar>
-      <Stack>
+      <Box>
         <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
           <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>{tweet.name}</Typography>
-          <Typography variant="subtitle2" color="gray" sx={{ ml: 1 }}>
+          <Typography variant="subtitle2" color="gray" sx={{ ml: 0.5 }}>
             @
             {tweet.username}
           </Typography>
         </Box>
-        <Typography variant="subtitle2">{tweet.text}</Typography>
-      </Stack>
-    </Stack>
+        <Typography variant="subtitle2">
+          {`${tweet.text} `}
+          <span style={{ color: '#1DA1F2' }}>
+            {tweet.hashtags && tweet.hashtags.map((hashtag) => `#${hashtag} `)}
+          </span>
+        </Typography>
+      </Box>
+    </Card>
   );
 };

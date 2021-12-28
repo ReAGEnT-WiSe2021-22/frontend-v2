@@ -12,9 +12,15 @@ export enum Party {
 export type Tweet = {
   id: string,
   text: string,
-  name: string,
   userId: string,
   username: string,
+  name: string,
+  hashtags: string[],
   party: Party,
   createdDate: Date,
+  inReplyToUserId?: string,
+  source?: string,
+  sentiment: number,
+  attachments?: number
+  json?: string
 }

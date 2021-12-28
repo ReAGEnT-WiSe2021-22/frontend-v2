@@ -1,6 +1,5 @@
 // @ts-ignore
 import randomExt from 'random-ext';
-import { v4 as uuidv4 } from 'uuid';
 import { Party, Tweet } from '../types';
 
 const NUM_OF_TWEETS = 100;
@@ -15,13 +14,17 @@ export const generateMockData = (): Tweet[] => {
 
   for (let i = 0; i < NUM_OF_TWEETS; i += 1) {
     const entry: Tweet = {
-      id: uuidv4(),
+      id: randomExt.stringPattern('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', {
+        x: [randomExt.restrictedString, [randomExt.CHAR_TYPE.HEX], 1, 1],
+      }),
       text: randomExt.restrictedString(
         [randomExt.CHAR_TYPE.LOWERCASE, randomExt.CHAR_TYPE.UPPERCASE, randomExt.CHAR_TYPE.SPACE],
         MAX_TWEET_LENGTH,
         MIN_TWEET_LENGTH,
       ),
-      userId: uuidv4(),
+      userId: randomExt.stringPattern('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', {
+        x: [randomExt.restrictedString, [randomExt.CHAR_TYPE.HEX], 1, 1],
+      }),
       username: randomExt.restrictedString(
         [randomExt.CHAR_TYPE.LOWERCASE, randomExt.CHAR_TYPE.UPPERCASE],
         MAX_NAME_LENGTH,

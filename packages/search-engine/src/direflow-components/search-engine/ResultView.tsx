@@ -12,7 +12,7 @@ const ResultView= () => {
               dataField='tweet'
               className='result-list'
               react={{
-                and: [ 'party-filter', 'mainSearch']
+                and: [ 'party-filter', 'mainSearch', 'date-filter']
               }}
               pagination={true}
               paginationAt='bottom'

@@ -2,7 +2,7 @@ import { Styled } from 'direflow-component';
 import React, { FC } from 'react';
 import {
   ReactiveBase, DataSearch, 
-  MultiDataList,
+  MultiDataList, DateRange,
 } from '@appbaseio/reactivesearch';
 import styles from './App.css';
 import ResultView from './ResultView';
@@ -30,7 +30,7 @@ const App: FC = () => (
   <Styled styles={styles}>
     <ReactiveBase
       app="tweets"
-      url="http://twint.f4.htw-berlin.de:9200/"
+      url="http://twint.f4.htw-berlin.de:8080/"
       enableAppbase={false}
 
       theme={{
@@ -56,7 +56,7 @@ const App: FC = () => (
         <div className="search-container">
           <DataSearch
             componentId="mainSearch"
-            dataField={['partei', 'partei.search', 'tweet', 'tweet.search']}
+            dataField={['partei', 'tweet']}
             className="search-bar"
             queryFormat="and"
             placeholder="Search here..."
@@ -99,6 +99,22 @@ const App: FC = () => (
             />
 
             <hr className="blue" />
+
+            <div className="filter-heading center">
+              <b>
+                {' '}
+                <i className="fa fa-calendar" />
+                {' '}
+                Date Filter
+                {' '}
+              </b>
+            </div>
+
+            <DateRange
+              componentId="date-filter"
+              dataField="date"
+              className="datePicker"
+            />
           </div>
         </div>
 

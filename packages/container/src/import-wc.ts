@@ -1,5 +1,10 @@
 /* eslint-disable no-console */
-export const microfrontends: string[] = ['search-engine', 'party-reputation', 'artificial-tweet'];
+export const microfrontends: string[] = [
+  'search-engine',
+  'party-reputation',
+  'artificial-tweet',
+  'potential-party',
+];
 
 export const importWc = () => Promise.all(microfrontends.map(async (appName) => {
   try {

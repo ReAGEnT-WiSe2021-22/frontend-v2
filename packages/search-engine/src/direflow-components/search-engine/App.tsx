@@ -85,7 +85,6 @@ const App: FC = () => (
               componentId="party-list"
               dataField="partei"
               data={partyNames}
-
               queryFormat="or"
               selectAllLabel="All Party"
               showCheckbox
@@ -95,7 +94,6 @@ const App: FC = () => (
                 and: [
                   'mainSearch',
                   'results',
-                  'date-filter',
                 ],
               }}
             />

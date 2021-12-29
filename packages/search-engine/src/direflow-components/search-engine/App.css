@@ -57,6 +57,7 @@ hr {
 .search-bar {
   border: 2px solid #86ddf8;
   border-radius: 3px;
+  
 }
 
 /* styling for result view */
@@ -103,13 +104,15 @@ hr {
 }
 
 .filter-heading {
-  color: #86ddf8;
+  color: #ffffff;
   font-size: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-
+input{
+  color: #000;
+}
 
 .datePicker {
   color: #000;

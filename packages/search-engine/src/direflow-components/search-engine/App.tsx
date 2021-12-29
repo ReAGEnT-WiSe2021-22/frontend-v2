@@ -3,9 +3,9 @@ import React, { FC } from 'react';
 import {
   ReactiveBase, DataSearch, 
   MultiDataList,
-  ReactiveList,
 } from '@appbaseio/reactivesearch';
 import styles from './App.css';
+import ResultView from './ResultView';
 
 const partyNames = [
   {
@@ -85,7 +85,6 @@ const App: FC = () => (
               componentId="party-list"
               dataField="partei"
               data={partyNames}
-
               queryFormat="or"
               selectAllLabel="All Party"
               showCheckbox
@@ -95,7 +94,6 @@ const App: FC = () => (
                 and: [
                   'mainSearch',
                   'results',
-                  'date-filter',
                 ],
               }}
             />
@@ -105,26 +103,7 @@ const App: FC = () => (
         </div>
 
         <div className='result-list'>
-            <ReactiveList
-              componentId='SearchResult'
-              dataField='tweet'
-              className='result-list'
-              react={{
-                and: [ 'party-filter', 'mainSearch']
-              }}
-              pagination={true}
-              paginationAt='bottom'
-              pages={5}
-              size={10}
-              loader='Loading results...'
-              onNoResults='No Results'
-              showResultStats={true}
-              renderResultStats={function(stats) {
-                return `Showing ${stats.displayedResults} 
-                of total ${stats.numberOfResults} in ${stats.time} ms`
-              }}
-            />
-
+            <ResultView />
         </div>
       </div>
       

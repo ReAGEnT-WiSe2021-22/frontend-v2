@@ -15,7 +15,8 @@
   "scripts": {
     "build": "tsc",
     "start": "tsc & node .",
-    "dev": "tsc -w & nodemon ."
+    "dev": "tsc -w & nodemon .",
+    "test": "exit 0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.8.1",

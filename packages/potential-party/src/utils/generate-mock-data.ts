@@ -3,11 +3,11 @@ import randomExt from 'random-ext';
 import { Party, Tweet } from '../types';
 
 const NUM_OF_TWEETS = 100;
+const MAX_NUM_OF_HASHTAGS = 10;
 const MAX_TWEET_LENGTH = 20;
 const MIN_TWEET_LENGTH = 10;
 const MAX_NAME_LENGTH = 10;
 const MIN_NAME_LENGTH = 3;
-const HASHTAGS_LENGTH = 4;
 
 export const generateMockData = (): Tweet[] => {
   const data: Tweet[] = [];
@@ -36,7 +36,7 @@ export const generateMockData = (): Tweet[] => {
         MIN_NAME_LENGTH,
       ),
       hashtags: randomExt.restrictedStringArray(
-        HASHTAGS_LENGTH,
+        randomExt.integer(MAX_NUM_OF_HASHTAGS),
         [randomExt.CHAR_TYPE.LOWERCASE, randomExt.CHAR_TYPE.UPPERCASE],
         MAX_NAME_LENGTH,
         MIN_NAME_LENGTH,

@@ -82,7 +82,7 @@ const App: FC = () => (
             </div>
 
             <MultiDataList
-              componentId="party-list"
+              componentId="partyList"
               dataField="partei"
               data={partyNames}
               queryFormat="or"
@@ -111,7 +111,7 @@ const App: FC = () => (
             </div>
 
             <DateRange
-              componentId="date-filter"
+              componentId="dateFilter"
               dataField="date"
               className="datePicker"
             />

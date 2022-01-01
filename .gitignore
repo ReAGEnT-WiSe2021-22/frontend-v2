@@ -25,7 +25,3 @@ yarn-error.log*
 # builds
 **/build/
 **/wc/
-**/dist
-
-frontend-v1/**
-**/backend/frontends/

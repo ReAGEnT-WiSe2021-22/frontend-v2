@@ -16,7 +16,8 @@
     "prebuild": "[ ! -d ./packages/container/src/wc ] && mkdir ./packages/container/src/wc || exit 0",
     "start:container": "cd ./packages/container && yarn start",
     "test": "./common/test.sh",
-    "tsc": "yarn workspaces run tsc"
+    "tsc": "yarn workspaces run tsc",
+    "serve": "node ./packages/backend/dist/index.js"
   },
   "devDependencies": {
     "typescript": "4.4.4"

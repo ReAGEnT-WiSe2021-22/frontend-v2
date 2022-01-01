@@ -2,7 +2,7 @@ import express from 'express';
 import { join } from 'path';
 
 const app = express();
-const port = 8080;
+const port = 5000;
 
 const v2Path = join(__dirname, '../frontends');
 app.use(express.static(v2Path));

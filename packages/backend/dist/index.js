@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const path_1 = require("path");
 const app = (0, express_1.default)();
-const port = 8080;
+const port = 5000;
 const v2Path = (0, path_1.join)(__dirname, '../frontends');
 app.use(express_1.default.static(v2Path));
 app.get('/v1', (req, res) => {

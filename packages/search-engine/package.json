@@ -10,11 +10,17 @@
     "test": "direflow-scripts test"
   },
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@mui/material": "^5.2.7",
     "@types/node": "12.7.8",
     "@types/react": "16.9.3",
     "@types/react-dom": "16.9.1",
     "direflow-component": "3.5.5",
     "direflow-scripts": "3.5.5",
+    "material-ui-search-bar": "^1.0.0",
     "miragejs": "^0.1.42",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

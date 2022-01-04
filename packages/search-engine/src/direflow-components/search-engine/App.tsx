@@ -33,6 +33,11 @@ const App: FC = () => (
       url="http://twint.f4.htw-berlin.de:8080/"
       enableAppbase={false}
 
+      transformRequest={props => ({
+        ...props,
+        url: props.url.replace('_msearch', '_search')
+      })}
+
       theme={{
         typography: {
           fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif', fontSize: '16px',
@@ -82,8 +87,8 @@ const App: FC = () => (
             </div>
 
             <MultiDataList
-              componentId="partyList"
-              dataField="partei"
+              componentId="partyFilter"
+              dataField='partei'
               data={partyNames}
               queryFormat="or"
               selectAllLabel="All Party"
@@ -112,7 +117,7 @@ const App: FC = () => (
 
             <DateRange
               componentId="dateFilter"
-              dataField="date"
+              dataField='date'
               className="datePicker"
             />
           </div>

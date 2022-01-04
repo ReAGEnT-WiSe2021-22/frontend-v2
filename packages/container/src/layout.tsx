@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { BiLinkExternal } from 'react-icons/bi';
 import { microfrontends } from './import-wc';
 
 const capitalizeFirstLetter = (word: string) => word.charAt(0).toUpperCase() + word.slice(1);
@@ -17,6 +18,10 @@ const Header: React.FunctionComponent = () => (
         {titleCase(mf)}
       </NavLink>
     ))}
+    <a href="/v1" className="flex items-center hover:text-white">
+      Old Frontend
+      <BiLinkExternal className="ml-1" />
+    </a>
   </nav>
 );
 

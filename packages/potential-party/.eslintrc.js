@@ -35,6 +35,7 @@ module.exports = {
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
     'import/no-extraneous-dependencies': 0,
     'import/prefer-default-export': 0,
+    'react/require-default-props': 'off',
     // 'simple-import-sort/imports': 'error',
     // 'simple-import-sort/exports': 'error',
   },

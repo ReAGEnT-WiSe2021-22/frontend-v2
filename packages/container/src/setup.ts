@@ -1,5 +1,6 @@
 import { createServer } from 'miragejs';
 import { partyReputation } from './fixtures/party-reputation';
+import { tweets } from './tweets/tweets';
 import { Environment } from './types';
 
 export const initMockServer = () => {
@@ -7,6 +8,10 @@ export const initMockServer = () => {
     routes() {
       this.get('/api/party-reputation', () => ({
         data: partyReputation,
+      }));
+
+      this.get('/api/potential-party', () => ({
+        data: tweets,
       }));
 
       this.get('/api/search-tweets', () => ({

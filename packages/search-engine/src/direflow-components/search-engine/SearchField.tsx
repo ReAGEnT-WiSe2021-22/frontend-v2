@@ -15,7 +15,6 @@ class SearchField extends React.Component <{}, { value: string }>{
         "query": {
             "bool": {
             "must": [
-                //{ "match": { "partei":{"query": "CDU SPD","operator": "or"}}},
                 { "match_phrase": { "tweet": value  }}
             ]
             }
@@ -35,7 +34,9 @@ class SearchField extends React.Component <{}, { value: string }>{
             body: JSON.stringify(data)
           })
             .then((response) => response.json())
-            .then((data) => console.log('This is your data', data));
+            .then((data) => console.log('This is your data', 
+                data.hits.hits.map((d: { _source: { partei: any; name: any; username: any; tweet: any; }; }) => 
+                ( {partei: d._source.partei, name: d._source.name, username: d._source.username, tweet: d._source.tweet }) )));
     }
 
     render() {

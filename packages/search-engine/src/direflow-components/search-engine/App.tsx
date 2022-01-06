@@ -1,12 +1,13 @@
-import { Styled } from 'direflow-component';
+//import { Styled } from 'direflow-component';
 import React, { FC } from 'react';
-import styles from './App.css';
-import SearchField from './SearchField';
+//import styles from './App.css';
+import SearchField from './components/SearchField';
+//import ResultCard from './components/ResultCard';
 
 const App: FC = () => (
-  <Styled styles={styles}>
-    <SearchField />
-  </Styled>
+    <>
+      <SearchField  />
+    </>
 );
 
 export default App;

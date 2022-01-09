@@ -6,6 +6,8 @@ import ResultCard from "./ResultCard";
 const SearchField: React.FunctionComponent = () => { 
     const [value, setValue] = useState('')
     const [data, setData] = useState([])
+    const [party, setParty] = useState(['CDU', 'SPD', 'AfD', 'Linke', 'CSU', 'FDP', 'B90', 'Parteilos' ])
+    
 
     const search = (value: string) => {
         const url = "http://twint.f4.htw-berlin.de:8080/tweets/_search?pretty"
@@ -13,7 +15,8 @@ const SearchField: React.FunctionComponent = () => {
         "query": {
             "bool": {
             "must": [
-                { "match_phrase": { "tweet": value  }}
+              { "match": { "partei":{"query": party.join(' ') ,"operator": "or"}}},
+              { "match_phrase": { "tweet": value  }}
             ]
             }
         },
@@ -32,9 +35,6 @@ const SearchField: React.FunctionComponent = () => {
             body: JSON.stringify(data)
           })
             .then((response) => response.json())
-            // .then((data) => console.log('This is your data', 
-            //     data.hits.hits.map((d: { _source: { partei: any; name: any; username: any; tweet: any; }; }) => 
-            //     ( {partei: d._source.partei, name: d._source.name, username: d._source.username, tweet: d._source.tweet }) )));
             .then((data) => setData(data.hits.hits.map((d: { _source: { partei: any; name: any; username: any; tweet: any; }; }) => 
                 ( {partei: d._source.partei, name: d._source.name, username: d._source.username, tweet: d._source.tweet }) )));
     }
@@ -47,13 +47,7 @@ const SearchField: React.FunctionComponent = () => {
                 onRequestSearch={() => search(value)} 
             />
 
-            <ResultCard tweet={{
-                partei: 'CDU',
-                name: 'Bob',
-                username: 'bob',
-                tweet: 'I hate covid'
-            }} />
-
+            
             {data.map((x) => (<ResultCard tweet={x}/>))}
         </>
     )

@@ -11,7 +11,7 @@ const ResultCard: React.FunctionComponent<{ tweet: Tweet }> = ({ tweet }) => {
     return (
     <Card sx={{ minWidth: 275 }}>
         <CardContent>
-            <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
+            <Box sx={{ display: 'inline-flex', alignItems: 'center', borderColor: '5px lightblue' }}>
                 <Avatar sx={{ marginRight: '0.5rem' }}>
                     {tweet.name.charAt(0)}
                 </Avatar>

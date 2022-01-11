@@ -1,0 +1,27 @@
+.home h1 {
+  @apply text-4xl font-extrabold mb-4;
+}
+
+.home h2 {
+  @apply text-2xl font-bold mt-8;
+}
+
+.home a {
+  @apply text-blue-500 duration-200;
+}
+
+.home a:hover {
+  @apply text-blue-700;
+}
+
+.home p {
+  @apply text-base font-light font-sans;
+}
+
+.home ul {
+  @apply list-decimal;
+}
+
+.home li {
+  @apply text-sm ml-8 font-mono;
+}

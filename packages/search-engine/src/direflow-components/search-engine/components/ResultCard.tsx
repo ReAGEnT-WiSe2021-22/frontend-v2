@@ -5,7 +5,6 @@ import {Avatar,
         Typography,
         CardContent,
 } from '@mui/material'
-import { alpha } from '@material-ui/core/styles/colorManipulator';
 import { Tweet } from '../Tweet';
 
 const ResultCard: React.FunctionComponent<{ tweet: Tweet }> = ({ tweet }) => {

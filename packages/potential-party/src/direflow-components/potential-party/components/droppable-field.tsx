@@ -27,7 +27,6 @@ export const DroppableField: React.FunctionComponent<{ onDrop: any }> = ({ onDro
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        p: 8,
         border: '2px dashed',
         borderRadius: '0.5rem',
         borderColor: 'grey.400',
@@ -35,6 +34,7 @@ export const DroppableField: React.FunctionComponent<{ onDrop: any }> = ({ onDro
         minWidth: 120,
       }}
       ref={drop}
+      height={500}
     >
       <Typography variant="h6" sx={{ color: 'grey.400' }}>Drop a tweet here</Typography>
     </Box>

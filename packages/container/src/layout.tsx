@@ -28,6 +28,6 @@ const Header: React.FunctionComponent = () => (
 export const Layout: React.FunctionComponent = ({ children }) => (
   <div className="flex flex-col min-h-full min-w-full">
     <Header />
-    <div className="m-4">{children}</div>
+    {children}
   </div>
 );

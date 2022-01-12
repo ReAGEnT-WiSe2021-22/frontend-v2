@@ -109,7 +109,7 @@ const SearchField: React.FunctionComponent = () => {
             paddingLeft: '10px', 
             border: 3,
             borderRadius: 2, 
-            borderColor: `${alpha('#1976d2', 0.75)}` 
+            borderColor: 'rgba(25, 118, 210, 0.75)' 
           }}>
           <Typography sx={{ fontSize: 17, textAlign: 'center'}}>
             Party Filter

@@ -13,7 +13,7 @@ const ResultCard: React.FunctionComponent<{ tweet: Tweet }> = ({ tweet }) => {
     <Card sx={{ minWidth: 275, margin: '5px' }}>
         <CardContent>
             <Box sx={{ display: 'inline-flex', alignItems: 'center'}}>
-                <Avatar sx={{ marginRight: '0.5rem', fontSize: 15, bgcolor: alpha('#1976d2', 0.9) }}>
+                <Avatar sx={{ marginRight: '0.5rem', fontSize: 15, bgcolor: 'rgba(25, 118, 210, 1)' }}>
                     {tweet.partei.substring(0, 3)}
                 </Avatar>
                 <Typography variant="h5" component="div">

@@ -3,6 +3,7 @@ import SearchBar from "material-ui-search-bar"
 import React, { useState } from "react";
 import { Tweet } from "../Tweet";
 import ResultView from "./ResultView";
+import { Divider } from "@material-ui/core";
 
 const SearchField: React.FunctionComponent = () => { 
     const [value, setValue] = useState('')
@@ -113,6 +114,7 @@ const SearchField: React.FunctionComponent = () => {
           <Typography sx={{ fontSize: 17, textAlign: 'center'}}>
             Party Filter
           </Typography>
+          <Divider />
           <FormControlLabel
             label="CDU"
             control={<Checkbox checked={checked1[0]} onChange={e => handleChecked1(e, 'CDU')}/>}

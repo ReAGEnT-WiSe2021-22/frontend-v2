@@ -2,7 +2,6 @@
 export const microfrontends: string[] = [
   'search-engine',
   'party-reputation',
-  'artificial-tweet',
   'potential-party',
 ];
 

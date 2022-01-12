@@ -7,7 +7,6 @@
   "scripts": {
     "build": "./common/build.sh",
     "build:all": "./common/build-all.sh && ./common/build.sh container",
-    "dev:artificial-tweet": "cd ./packages/artificial-tweet && yarn run start",
     "dev:party-reputation": "cd ./packages/party-reputation && yarn run start",
     "dev:potential-party": "cd ./packages/potential-party && yarn run start",
     "dev:search-engine": "cd ./packages/search-engine && yarn run start",

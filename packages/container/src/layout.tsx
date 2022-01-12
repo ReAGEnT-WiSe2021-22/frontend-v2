@@ -8,7 +8,7 @@ const capitalizeFirstLetter = (word: string) => word.charAt(0).toUpperCase() + w
 const titleCase = (title: string) => title.split('-').map((word) => capitalizeFirstLetter(word)).join(' ');
 
 const Header: React.FunctionComponent = () => (
-  <nav className="flex p-4 bg-indigo-400 text-indigo-100">
+  <nav className="flex p-4 bg-primary text-indigo-100">
     {['home', ...microfrontends].map((mf) => (
       <NavLink
         key={mf}
@@ -28,6 +28,6 @@ const Header: React.FunctionComponent = () => (
 export const Layout: React.FunctionComponent = ({ children }) => (
   <div className="flex flex-col min-h-full min-w-full">
     <Header />
-    <div className="m-4">{children}</div>
+    {children}
   </div>
 );

@@ -9,7 +9,10 @@ import { useDrag } from 'react-dnd';
 import { ItemTypes } from '../../../const';
 import { Tweet } from '../../../types';
 
-export const DraggableTweet: React.FunctionComponent<{ tweet: Tweet }> = ({ tweet }) => {
+export const DraggableTweet: React.FunctionComponent<{
+  tweet: Tweet
+  isDropped: boolean
+}> = ({ tweet, isDropped }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemTypes.Tweet,
     item: tweet,
@@ -27,6 +30,7 @@ export const DraggableTweet: React.FunctionComponent<{ tweet: Tweet }> = ({ twee
         borderRadius: 1,
         cursor: 'pointer',
         opacity: isDragging ? 0.4 : 1,
+        backgroundColor: isDropped ? 'azure' : 'white',
       }}
       ref={drag}
     >

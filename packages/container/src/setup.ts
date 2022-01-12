@@ -1,4 +1,6 @@
 import { createServer } from 'miragejs';
+
+import { REAGENT_WIKI_ENDPOINT } from './const';
 import { partyReputation } from './fixtures/party-reputation';
 import { tweets } from './tweets/tweets';
 import { Environment } from './types';
@@ -6,6 +8,8 @@ import { Environment } from './types';
 export const initMockServer = () => {
   (window as any).server = createServer({
     routes() {
+      this.passthrough(REAGENT_WIKI_ENDPOINT);
+
       this.get('/api/party-reputation', () => ({
         data: partyReputation,
       }));

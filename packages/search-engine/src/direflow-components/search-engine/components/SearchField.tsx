@@ -1,9 +1,9 @@
-import { Box, FormControlLabel, Checkbox } from "@mui/material";
+import { alpha } from "@material-ui/core/styles/colorManipulator";
+import { Box, FormControlLabel, Checkbox, Typography } from "@mui/material";
 import SearchBar from "material-ui-search-bar"
 import React, { useState } from "react";
 import { Tweet } from "../Tweet";
-import ResultCard from "./ResultCard";
-
+import ResultView from "./ResultView";
 
 const SearchField: React.FunctionComponent = () => { 
     const [value, setValue] = useState('')
@@ -102,7 +102,18 @@ const SearchField: React.FunctionComponent = () => {
     
 
     const partyCheckBox = (
-        <Box sx={{ display: 'flex', flexDirection: 'row', ml: 3 }}>
+        <Box sx={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            padding: '3px',
+            paddingLeft: '10px', 
+            border: 3,
+            borderRadius: 2, 
+            borderColor: `${alpha('#1976d2', 0.75)}` 
+          }}>
+          <Typography sx={{ fontSize: 17, textAlign: 'center'}}>
+            Party Filter
+          </Typography>
           <FormControlLabel
             label="CDU"
             control={<Checkbox checked={checked1[0]} onChange={e => handleChecked1(e, 'CDU')}/>}
@@ -165,25 +176,29 @@ const SearchField: React.FunctionComponent = () => {
             body: JSON.stringify(data)
           })
             .then((response) => response.json())
-            .then((data) => setData(data.hits.hits.map((d: { _source: { id: any; partei: any; name: any; username: any; tweet: any; }; }) => 
-                ( {id: d._source.id, partei: d._source.partei, name: d._source.name, username: d._source.username, tweet: d._source.tweet }) as Tweet )));
+            .then((data) => {
+              setData(data.hits.hits.map((d: { _source: { id: any; partei: any; name: any; username: any; tweet: any; }; }) => 
+                ( {id: d._source.id, partei: d._source.partei, name: d._source.name, username: d._source.username, tweet: d._source.tweet }) as Tweet ));
+              console.log(data)
+            });
     }
 
     return (
         <>
-            <SearchBar
+          <SearchBar
                 value={value}
                 onChange={(newValue) =>setValue(newValue)}
                 onRequestSearch={() => search(value)} 
-            />
-
+          />
+          <Box sx={{ display: 'flex', margin: '5px', alignItems: 'flex-start' }}>
             {partyCheckBox}
 
-            {data.length!==0 ? 
-              data.map((tweet: Tweet) => (<ResultCard tweet={tweet} key={tweet.id}/>)) 
-              : "No Results"}
-            
+            <ResultView data={data}/>
+          </Box>
         </>
+            
+            
+       
     )
     
 }

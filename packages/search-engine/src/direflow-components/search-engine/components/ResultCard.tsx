@@ -5,15 +5,16 @@ import {Avatar,
         Typography,
         CardContent,
 } from '@mui/material'
+import { alpha } from '@material-ui/core/styles/colorManipulator';
 import { Tweet } from '../Tweet';
 
 const ResultCard: React.FunctionComponent<{ tweet: Tweet }> = ({ tweet }) => {
     return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card sx={{ minWidth: 275, margin: '5px' }}>
         <CardContent>
-            <Box sx={{ display: 'inline-flex', alignItems: 'center', borderColor: '5px lightblue' }}>
-                <Avatar sx={{ marginRight: '0.5rem' }}>
-                    {tweet.partei.substring(0, 2)}
+            <Box sx={{ display: 'inline-flex', alignItems: 'center'}}>
+                <Avatar sx={{ marginRight: '0.5rem', fontSize: 15, bgcolor: alpha('#1976d2', 0.9) }}>
+                    {tweet.partei.substring(0, 3)}
                 </Avatar>
                 <Typography variant="h5" component="div">
                     {tweet.name}

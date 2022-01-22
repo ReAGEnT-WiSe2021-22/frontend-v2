@@ -5,7 +5,7 @@ import { ItemTypes } from '../../../const';
 import { Tweet } from '../../../types';
 
 interface DroppableFieldProps {
-  onDrop: (item: Tweet, monitor: DropTargetMonitor) => any;
+  onDrop: (item: Tweet, monitor: DropTargetMonitor) => void;
 }
 
 /**

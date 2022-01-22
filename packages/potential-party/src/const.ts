@@ -1,7 +1,3 @@
-/**
- *
- * Constants
- */
 export const ItemTypes = {
   Tweet: 'tweet',
 };

@@ -2,10 +2,18 @@ import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
 import { Tweet } from '../../../types';
 
-export const TweetDetails: React.FunctionComponent<{
+interface TweetDetailsProps {
   tweet?: Tweet
   onClear: () => void
-}> = ({ tweet, onClear }) => {
+}
+
+/**
+ *
+ * @param tweet Tweet object.
+ * @param onClear VoidFunction to clear Tweet object.
+ * @returns A JSON formatted Tweet Details View.
+ */
+export const TweetDetails: React.FC<TweetDetailsProps> = ({ tweet, onClear }) => {
   const alignment = tweet ? 'start' : 'center';
 
   let content: React.ReactElement;

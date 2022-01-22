@@ -1,14 +1,21 @@
 // @ts-ignore
 import randomExt from 'random-ext';
+import {
+  MAX_NAME_LENGTH,
+  MAX_NUM_OF_HASHTAGS,
+  MAX_TWEET_LENGTH,
+  MIN_NAME_LENGTH,
+  MIN_TWEET_LENGTH,
+  NUM_OF_TWEETS,
+} from '../const';
 import { Party, Tweet } from '../types';
 
-const NUM_OF_TWEETS = 100;
-const MAX_NUM_OF_HASHTAGS = 10;
-const MAX_TWEET_LENGTH = 20;
-const MIN_TWEET_LENGTH = 10;
-const MAX_NAME_LENGTH = 10;
-const MIN_NAME_LENGTH = 3;
-
+/**
+ *
+ * @returns Array of Tweet object.
+ * Function to generate test Tweets consists of
+ * strings and Dates to be displayed on a list.
+ */
 export const generateMockData = (): Tweet[] => {
   const data: Tweet[] = [];
 

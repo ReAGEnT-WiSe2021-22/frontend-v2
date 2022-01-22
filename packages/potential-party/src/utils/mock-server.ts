@@ -1,6 +1,11 @@
 import { createServer } from 'miragejs';
 import { generateMockData } from './generate-mock-data';
 
+/**
+ *
+ * Function to initialise Mock Server
+ * on development.
+ */
 export const initMockServer = () => {
   console.log('Initiating mock server');
   (window as any).server = createServer({

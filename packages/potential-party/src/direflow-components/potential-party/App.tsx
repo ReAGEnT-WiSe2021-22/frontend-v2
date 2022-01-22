@@ -9,7 +9,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import styles from './App.css';
 import { PotentialParty } from './components/potential-party';
 
-const App: React.FunctionComponent = () => (
+const App: React.FC = () => (
   <DndProvider backend={HTML5Backend}>
     <Styled styles={styles}>
       <PotentialParty />

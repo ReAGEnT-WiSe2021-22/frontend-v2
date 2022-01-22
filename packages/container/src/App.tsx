@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Layout } from './components/layout';
 import { microfrontends } from './import-wc';
 import { Page404 } from './pages/404';
-import { Home } from './pages/home/Home';
+import { Home } from './pages/home/index';
 
 /**
  *

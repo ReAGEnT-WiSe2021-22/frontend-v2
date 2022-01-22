@@ -7,7 +7,7 @@ import { titleCase } from '../utils/string-util';
 
 /**
  *
- * @returns A Header component consists of routes to web components
+ * A Header component consists of routes to web components
  */
 export const Header: React.FC = () => (
   <nav className="flex p-4 bg-primary text-blue-200">

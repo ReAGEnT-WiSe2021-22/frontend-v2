@@ -5,6 +5,11 @@ import { partyReputation } from './fixtures/party-reputation';
 import { tweets } from './tweets/tweets';
 import { Environment } from './types';
 
+/**
+ *
+ * Function to initialise Mock Server
+ * on development.
+ */
 export const initMockServer = () => {
   (window as any).server = createServer({
     routes() {

@@ -1,3 +1,7 @@
+/**
+ *
+ * Party Reputation mock data.
+ */
 export const partyReputation = [
   {
     party: 'autem',

@@ -1,13 +1,15 @@
 import cx from 'classnames';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { BiLinkExternal } from 'react-icons/bi';
-import { microfrontends } from './import-wc';
+import { NavLink } from 'react-router-dom';
+import { microfrontends } from '../import-wc';
+import { titleCase } from '../utils/string-util';
 
-const capitalizeFirstLetter = (word: string) => word.charAt(0).toUpperCase() + word.slice(1);
-const titleCase = (title: string) => title.split('-').map((word) => capitalizeFirstLetter(word)).join(' ');
-
-const Header: React.FunctionComponent = () => (
+/**
+ *
+ * @returns A Header component consists of routes to web components
+ */
+export const Header: React.FC = () => (
   <nav className="flex p-4 bg-primary text-blue-200">
     {['home', ...microfrontends].map((mf) => (
       <NavLink
@@ -23,11 +25,4 @@ const Header: React.FunctionComponent = () => (
       <BiLinkExternal className="ml-1" />
     </a>
   </nav>
-);
-
-export const Layout: React.FunctionComponent = ({ children }) => (
-  <div className="flex flex-col min-h-full min-w-full">
-    <Header />
-    {children}
-  </div>
 );

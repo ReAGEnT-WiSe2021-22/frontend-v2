@@ -1,9 +1,19 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
-import { useDrop } from 'react-dnd';
+import { DropTargetMonitor, useDrop } from 'react-dnd';
 import { ItemTypes } from '../../../const';
+import { Tweet } from '../../../types';
 
-export const DroppableField: React.FunctionComponent<{ onDrop: any }> = ({ onDrop }) => {
+interface DroppableFieldProps {
+  onDrop: (item: Tweet, monitor: DropTargetMonitor) => any;
+}
+
+/**
+ *
+ * @param onDrop Function to be called when Tweet object is dropped
+ * @returns A Drop Field View
+ */
+export const DroppableField: React.FC<DroppableFieldProps> = ({ onDrop }) => {
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: ItemTypes.Tweet,
     drop: onDrop,

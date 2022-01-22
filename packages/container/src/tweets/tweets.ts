@@ -1,3 +1,7 @@
+/**
+ *
+ * Potential Party tweets mock data.
+ */
 export const tweets = [
   {
     id: '8d158633-f43a-495d-985d-8f99c3f3bad6',

@@ -11,7 +11,11 @@ export type ReputationModel = {
   /**
   * Sentiment as a number (analysed).
   */
-  sentiments: number[]
+  values: number[]
+  /**
+   * Raw data of the sentiment analysis
+   */
+  rawData: number[]
 }
 
 export enum Environment {

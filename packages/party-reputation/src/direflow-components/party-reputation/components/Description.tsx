@@ -17,11 +17,6 @@ const Description = (): JSX.Element => (
       We want to make it easier to analyse the generated data. Therefore, we
       draw a line chart to visualise it in the browser.
     </Typography>
-    <Typography variant="body1" marginTop={2}>
-      Below is the generated sentiment for all parties between .. and ...
-      Please click on one of the party name button above, to display
-      the sentiment analysis for a specific party.
-    </Typography>
   </Stack>
 );
 

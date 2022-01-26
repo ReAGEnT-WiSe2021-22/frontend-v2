@@ -15,7 +15,8 @@ export const createMockDatas = (): ReputationModel[] => {
       dates: [...datas]
         .map(() => faker.date.past().toString())
         .sort((a, b) => new Date(a).getTime() - new Date(b).getTime()),
-      sentiments: [...datas].map(() => Math.random() * 5),
+      values: [...datas].map(() => Math.random() * 5),
+      rawData: [...datas].map(() => Math.random() * 5),
     };
   });
 };

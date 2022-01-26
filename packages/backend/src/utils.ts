@@ -4,7 +4,7 @@ import { PartyReputationUpstreamType } from './types';
 
 // eslint-disable-next-line import/prefer-default-export
 export const manipulatePartyReputationUpstream = (data: PartyReputationUpstreamType) => {
-  const [mlData, rawData] = data;
+  const [rawData, mlData] = data;
   return mlData.map((partyReputationData) => {
     const { party } = partyReputationData;
     return {

@@ -3,6 +3,8 @@ import React, { useMemo, FC } from 'react';
 
 import SingleGraph from '../View/SingleGraph';
 import Description from '../Description';
+import ReputationLabel from '../ReputationLabel';
+
 import { HOME } from '../../../../const';
 import { useActiveParty } from '../../../../hooks/useActiveParty';
 import { useReputationModel } from '../../../../hooks/useReputationModels';
@@ -42,9 +44,10 @@ const PartyView = (): JSX.Element => {
           Sentiment analysis for
           {' '}
         </Typography>
-        {/* TODO: add party logo? */}
-        <Typography variant="h4">{activeParty}</Typography>
-
+        <Stack>
+          <Typography variant="h4">{activeParty}</Typography>
+          <ReputationLabel data={partyData} />
+        </Stack>
         <SingleGraph data={partyData} />
       </Stack>
     </Container>

@@ -4,9 +4,9 @@ export const LABEL_COUNT = 8;
 export enum Party {
   CDU = 'CDU',
   SPD = 'SPD',
-  gruene = 'Grüne',
+  gruene = 'Die_Gruenen',
   FDP = 'FDP',
-  linke = 'Linke',
+  linke = 'Die_Linke',
   CSU = 'CSU',
   AFD = 'AFD',
 }

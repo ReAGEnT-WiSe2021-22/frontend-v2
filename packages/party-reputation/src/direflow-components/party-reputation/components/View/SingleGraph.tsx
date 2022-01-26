@@ -33,8 +33,8 @@ const SingleGraph = ({ data }: Props): JSX.Element => {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="date" interval={getLabelCount(data)} tick={{ fontFamily: '"Noto Sans JP"' }} />
-      <YAxis dataKey="value" domain={[0, 5]} ticks={[1, 2, 3, 4, 5]} tick={{ fontFamily: '"Noto Sans JP"' }} />
+      <XAxis dataKey="date" interval={Math.floor(data.values.length / getLabelCount(data))} tick={{ fontFamily: '"Noto Sans JP"' }} />
+      <YAxis dataKey="value" domain={[0, 3]} ticks={[1, 2, 3]} tick={{ fontFamily: '"Noto Sans JP"' }} />
       <Tooltip />
       <Legend />
       <Line type="monotone" dot={false} dataKey="value" stroke={strokeColor} strokeWidth={2} activeDot={{ r: 8 }} />

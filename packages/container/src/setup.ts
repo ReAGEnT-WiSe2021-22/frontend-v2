@@ -30,12 +30,16 @@ export const initMockServer = () => {
 };
 
 export const setup = (): Promise<void> => new Promise((resolve) => {
-  const env = process.env.REACT_APP_ENVIRONMENT as Environment || Environment.development;
+  const env = process.env.REACT_APP_ENVIRONMENT as Environment ?? Environment.development;
 
   (window as any).environment = env;
 
   if ([Environment.staging, Environment.development].indexOf(env) > -1) {
+    console.log('init mock server');
     initMockServer();
+  } else {
+    console.log('production mode');
+    (window as any).baseUrl = '';
   }
 
   resolve(undefined);

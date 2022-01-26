@@ -49,6 +49,7 @@ const APIWrapper = (): JSX.Element => {
         setActiveParty(HOME);
       }
     } catch (e) {
+      console.error(e);
       setHasError(true);
     } finally {
       setIsLoading(false);
@@ -57,6 +58,7 @@ const APIWrapper = (): JSX.Element => {
 
   useEffect(() => {
     if (!DEBUG) {
+      (window as any).partyReputationEnv = process.env.REACT_APP_ENVIRONMENT;
       fetchData();
     }
   }, []);

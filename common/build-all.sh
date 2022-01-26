@@ -5,7 +5,7 @@ for D in ./packages/*; do
    app_name=`basename $D`
 
    if [ $app_name != "build" ] && [ $app_name != "container" ] && [ $app_name != "backend" ]; then
-    yarn build $app_name
+    REACT_APP_ENVIRONMENT=production yarn build $app_name
    fi
   fi
 done

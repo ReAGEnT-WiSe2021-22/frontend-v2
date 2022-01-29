@@ -1,31 +1,38 @@
 import { Info } from '@mui/icons-material';
-import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
-import RefreshIcon from '@mui/icons-material/Refresh';
 import {
-  Box,
-  Button,
-  Grid, Skeleton, Stack, Typography,
+  Grid,
+  Stack,
+  Typography,
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useFetch } from '../../../hooks/use-fetch';
 import { Tweet } from '../../../types';
 import { DraggableTweet } from './draggable-tweet';
 import { DroppableField } from './droppable-field';
+import { Error } from './error';
+import { Loading } from './loading';
 import { TweetDetails } from './tweet-details';
+import { Wrapper } from './wrapper';
 
-const Wrapper: React.FunctionComponent = ({ children }) => (
-  <Stack padding={6}>
-    {children}
-  </Stack>
-);
-
-export const PotentialParty: React.FunctionComponent = () => {
+/**
+ *
+ * @returns Potential Party View.
+ * View will be separated into 3 different columns:
+ * First column will show a list of Tweets.
+ * Second columnn will show a droppable field.
+ * Third column will show a detailed Tweet object.
+ */
+export const PotentialParty: React.FC = () => {
   const { apiRequest } = useFetch();
   const [draggableTweets, setDraggableTweets] = useState<Tweet[]>([]);
   const [droppedTweet, setDroppedTweet] = useState<Tweet>();
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
+  /**
+   *
+   * Fetch Array of Tweet objects from API.
+   */
   const getDraggableTweets = async () => {
     setIsLoading(true);
     setHasError(false);
@@ -41,53 +48,32 @@ export const PotentialParty: React.FunctionComponent = () => {
     }
   };
 
+  /**
+   *
+   * Call function when component is mounted.
+   */
   useEffect(() => {
     getDraggableTweets();
   }, []);
 
+  /**
+   *
+   * Show Loading component on loading.
+   */
   if (isLoading) {
-    return (
-      <Wrapper>
-        <Skeleton
-          variant="rectangular"
-          height={60}
-          width={350}
-          sx={{ marginBottom: 3 }}
-        />
-        <Stack direction="row">
-          <Skeleton variant="rectangular" height={500} width={450} sx={{ marginRight: 3 }} />
-          <Skeleton variant="rectangular" height={500} width={450} sx={{ marginRight: 3 }} />
-          <Skeleton variant="rectangular" height={500} width={450} sx={{ marginRight: 3 }} />
-        </Stack>
-      </Wrapper>
-    );
+    return <Loading />;
   }
 
+  /**
+   *
+   * Show Error component on error
+   */
   if (hasError) {
     return (
-      <Wrapper>
-        <Stack
-          direction="row"
-          alignItems="flex-start"
-          spacing={2}
-          paddingX={3}
-          paddingY={2}
-          sx={{
-            borderRadius: 4,
-          }}
-        >
-          <PriorityHighIcon sx={{ marginTop: 0.75, fontSize: 40 }} />
-          <Box>
-            <Typography variant="h4">Oops!</Typography>
-            <Typography variant="h5">
-              Something went wrong.
-            </Typography>
-            <Button startIcon={<RefreshIcon />} sx={{ marginTop: 1 }} onClick={getDraggableTweets}>
-              Click to try again
-            </Button>
-          </Box>
-        </Stack>
-      </Wrapper>
+      <Error
+        message="Something went wrong!"
+        onClick={getDraggableTweets}
+      />
     );
   }
 

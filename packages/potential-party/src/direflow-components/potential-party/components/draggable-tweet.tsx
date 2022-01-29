@@ -9,10 +9,21 @@ import { useDrag } from 'react-dnd';
 import { ItemTypes } from '../../../const';
 import { Tweet } from '../../../types';
 
-export const DraggableTweet: React.FunctionComponent<{
+interface DraggableTweetProps {
   tweet: Tweet
   isDropped: boolean
-}> = ({ tweet, isDropped }) => {
+}
+
+/**
+ *
+ * @param tweet Tweet object
+ * @param isDropped boolean value whether object is dropped
+ * @returns A Draggable Tweet View
+ */
+export const DraggableTweet: React.FC<DraggableTweetProps> = ({
+  tweet,
+  isDropped,
+}) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemTypes.Tweet,
     item: tweet,

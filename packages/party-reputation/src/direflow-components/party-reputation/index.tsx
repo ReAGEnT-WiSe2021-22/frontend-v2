@@ -4,8 +4,8 @@ import { initMockServer } from '../../utils/mock-server';
 import App from './App';
 
 export default () => {
-  const isDevelopment = ((window as any).environment ?? 'development') === 'development';
-  if (isDevelopment) {
+  const isInProduction = process.env.REACT_APP_ENVIRONMENT === 'production';
+  if (!isInProduction) {
     initMockServer();
   }
 

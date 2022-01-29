@@ -14,7 +14,8 @@ import { formatDate } from './formatDate';
 export const groupSentimentData = (data: ReputationModel[]) => {
   const sentimentData = data.map((party) => party.dates.map((date, index) => ({
     date: formatDate(date),
-    sentiment: party.sentiments[index],
+    values: party.values[index],
+    rawData: party.rawData[index],
     party: party.party,
   })));
 
@@ -25,7 +26,7 @@ export const groupSentimentData = (data: ReputationModel[]) => {
   return Object.keys(groupedByDate).map((key) => ({
     date: key,
     ...groupedByDate[key]
-      .map(({ party, sentiment }) => ({ [party]: sentiment }))
+      .map(({ party, values }) => ({ [party]: values }))
       .reduce((a, b) => ({ ...a, ...b }), {}),
   }));
 };

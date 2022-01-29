@@ -17,7 +17,8 @@ export const MockWrappers: React.FC<{ setActiveParty: () => void }> = ({
       data: fixtures.parties.map((party) => ({
         party,
         dates: [],
-        sentiments: [],
+        values: [],
+        rawData: [],
       })),
     }}
   >

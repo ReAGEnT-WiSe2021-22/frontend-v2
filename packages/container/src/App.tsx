@@ -1,14 +1,16 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { Layout } from './components/layout';
 import { microfrontends } from './import-wc';
-import { Layout } from './layout';
-import { Home } from './Home';
+import { Page404 } from './pages/404';
+import { Home } from './pages/home/index';
 
-const Page404: React.FunctionComponent = () => (
-  <div>404 Page not found</div>
-);
-
-const App = ({ wiki }: {wiki: string}): JSX.Element => (
+/**
+ *
+ * @param wiki Wiki markdown data.
+ * @returns A container App View.
+ */
+const App = ({ wiki }: { wiki: string }): JSX.Element => (
   <Layout>
     <Routes>
       <Route path="/" element={<Home wiki={wiki} />} />

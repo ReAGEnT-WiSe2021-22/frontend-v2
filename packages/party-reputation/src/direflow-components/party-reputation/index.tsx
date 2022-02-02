@@ -6,7 +6,10 @@ import App from './App';
 export default () => {
   const isInProduction = process.env.REACT_APP_ENVIRONMENT === 'production';
   if (!isInProduction) {
+    console.log('Initiating Party-Reputation mock server');
     initMockServer();
+  } else {
+    console.log('Skipping');
   }
 
   return DireflowComponent.create({

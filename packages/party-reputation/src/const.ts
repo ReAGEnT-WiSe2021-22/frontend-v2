@@ -25,7 +25,7 @@ export const PARTY_RAW_DATA_COLORS: Record<string, string> = {
   [Party.CDU]: '#888',
   [Party.SPD]: '#faa',
   [Party.gruene]: '#7f7',
-  [Party.FDP]: '#ff5',
+  [Party.FDP]: '#ed6',
   [Party.linke]: '#faf',
   [Party.CSU]: '#aaf',
   [Party.AFD]: '#ccf',

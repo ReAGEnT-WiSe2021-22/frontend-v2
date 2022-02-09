@@ -25,3 +25,8 @@
 .home li {
   @apply text-sm ml-8 font-mono;
 }
+
+.home img {
+  max-width: 60vw;
+  @apply mt-8;
+}

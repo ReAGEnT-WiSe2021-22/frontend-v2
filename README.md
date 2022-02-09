@@ -6,7 +6,7 @@
 - **Staging**: https://reagent-wise2021-22.github.io/frontend-v2/#/
 - **Production**: http://reagent1.f4.htw-berlin.de:8080/frontend-v2/#
 
-> Newer updates won't really keep the (staging environment)[https://reagent-wise2021-22.github.io/frontend-v2/#/] in mind. If something's broken there, please visit the (production environment)[http://reagent1.f4.htw-berlin.de:8080/frontend-v2/#]
+> Newer updates won't really keep the staging environment (https://reagent-wise2021-22.github.io/frontend-v2/#/) in mind. If something's broken there, please visit the production environment (http://reagent1.f4.htw-berlin.de:8080/frontend-v2/#)
 
 ReAGEnT WiSe2021/22 Frontend.
 A front end application to display data from the backend (please take a look into other repositories within the organization). Please take a look into our [Wiki](https://github.com/ReAGEnT-WiSe2021-22/Wiki) for a detailed overview of our project.

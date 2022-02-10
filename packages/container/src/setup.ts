@@ -1,5 +1,4 @@
 import { createServer } from 'miragejs';
-
 import { REAGENT_WIKI_ENDPOINT } from './const';
 import { partyReputation } from './fixtures/party-reputation';
 import { tweets } from './tweets/tweets';
@@ -34,6 +33,16 @@ export const initMockServer = () => {
   });
 };
 
+export const initPotentialPartyMockServer = () => {
+  (window as any).server = createServer({
+    routes() {
+      this.get('/api/potential-party', () => ({
+        data: tweets,
+      }));
+    },
+  });
+};
+
 export const setup = (): Promise<void> => new Promise((resolve) => {
   const env = process.env.REACT_APP_ENVIRONMENT as Environment ?? Environment.development;
 
@@ -44,6 +53,7 @@ export const setup = (): Promise<void> => new Promise((resolve) => {
     initMockServer();
   } else {
     console.log('production mode');
+    initPotentialPartyMockServer();
     (window as any).baseUrl = '';
   }
 

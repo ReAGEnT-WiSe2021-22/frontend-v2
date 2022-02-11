@@ -13,9 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable import/extensions */
+const axios_1 = __importDefault(require("axios"));
 const express_1 = __importDefault(require("express"));
 const path_1 = require("path");
-const axios_1 = __importDefault(require("axios"));
 // eslint-disable-next-line import/no-unresolved
 const utils_1 = require("./utils");
 const app = (0, express_1.default)();
@@ -29,6 +29,18 @@ app.get('/api/party-reputation', (_, res) => __awaiter(void 0, void 0, void 0, f
         const upstreamData = upstreamRequest.data;
         const manipulatedData = (0, utils_1.manipulatePartyReputationUpstream)(upstreamData);
         res.send({ msg: 'success', data: manipulatedData });
+        return;
+    }
+    catch (e) {
+        res.status(400).send({ msg: 'Bad request', e });
+    }
+}));
+app.get('/api/potential-party', (_, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const externalUrl = 'http://reagent1.f4.htw-berlin.de:8081/tweets';
+    try {
+        const upstreamRequest = yield axios_1.default.get(externalUrl);
+        const upstreamData = upstreamRequest.data;
+        res.send({ msg: 'success', data: upstreamData });
         return;
     }
     catch (e) {

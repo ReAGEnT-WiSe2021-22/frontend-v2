@@ -15,9 +15,9 @@ const { CLONE_V1, BUILD_V1, CLEANUP_V1, BUILD_V2, MOVE_V2, MOVE_V1 } =
 const eval = (str) => str === "true";
 
 const VARS = {
-  CLONE_V1: CLONE_V1 ? eval(CLONE_V1) : false,
-  BUILD_V1: BUILD_V1 ? eval(BUILD_V1) : false,
-  MOVE_V1: MOVE_V1 ? eval(MOVE_V1) : false,
+  CLONE_V1: CLONE_V1 ? eval(CLONE_V1) : true,
+  BUILD_V1: BUILD_V1 ? eval(BUILD_V1) : true,
+  MOVE_V1: MOVE_V1 ? eval(MOVE_V1) : true,
   CLEANUP_V1: CLEANUP_V1 ? eval(CLEANUP_V1) : true,
   BUILD_V2: BUILD_V2 ? eval(BUILD_V2) : true,
   MOVE_V2: MOVE_V2 ? eval(MOVE_V2) : true,

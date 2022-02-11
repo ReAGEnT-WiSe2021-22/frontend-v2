@@ -22,10 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# builds
-**/build/
-**/wc/
-**/dist
+# # builds
+# **/build/
+# **/wc/
+# **/dist
 
-frontend-v1/**
-**/backend/frontends/
+# frontend-v1/**
+# **/backend/frontends/

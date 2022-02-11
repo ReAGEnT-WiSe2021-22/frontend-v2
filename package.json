@@ -16,7 +16,8 @@
     "start:container": "cd ./packages/container && yarn start",
     "test": "./common/test.sh",
     "tsc": "yarn workspaces run tsc",
-    "serve": "cd ./packages/backend && yarn dev"
+    "serve": "cd ./packages/backend && yarn build && node .",
+    "dev:serve": "cd ./packages/backend && yarn dev"
   },
   "devDependencies": {
     "typescript": "4.4.4"

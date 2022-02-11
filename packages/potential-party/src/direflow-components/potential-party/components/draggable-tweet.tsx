@@ -48,17 +48,16 @@ export const DraggableTweet: React.FC<DraggableTweetProps> = ({
       <Avatar sx={{ marginRight: '0.5rem' }}>{tweet.name.charAt(0)}</Avatar>
       <Box>
         <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>{tweet.name}</Typography>
+          <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
+            {tweet.name}
+          </Typography>
           <Typography variant="subtitle2" color="gray" sx={{ ml: 0.5 }}>
             @
             {tweet.username}
           </Typography>
         </Box>
         <Typography variant="subtitle2">
-          {`${tweet.text} `}
-          <span style={{ color: '#1DA1F2' }}>
-            {tweet.hashtags && tweet.hashtags.map((hashtag) => `#${hashtag} `)}
-          </span>
+          {tweet.text}
         </Typography>
       </Box>
     </Card>

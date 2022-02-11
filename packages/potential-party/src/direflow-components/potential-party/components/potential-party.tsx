@@ -87,11 +87,20 @@ export const PotentialParty: React.FC = () => {
         </Stack>
       ) : (
         <Grid
+          style={{ maxWidth: 'calc(100vw - 6rem)' }}
           container
           rowSpacing={1}
           columnSpacing={{ xs: 1, sm: 2, md: 3 }}
         >
-          <Grid item xs={4} sx={{ maxHeight: 512, overflow: 'auto' }}>
+          <Grid
+            item
+            xs={4}
+            sx={{
+              maxHeight: 512,
+              overflow: 'auto',
+              maxWidth: '33%',
+            }}
+          >
             <Stack direction="column" spacing={1} paddingBottom={1}>
               {draggableTweets && draggableTweets.map((tweet) => (
                 <DraggableTweet
@@ -102,10 +111,10 @@ export const PotentialParty: React.FC = () => {
               ))}
             </Stack>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} sx={{ maxWidth: '33%' }}>
             <DroppableField onDrop={(item: any) => setDroppedTweet(item)} />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} sx={{ maxWidth: '33%' }}>
             <TweetDetails tweet={droppedTweet} onClear={() => setDroppedTweet(undefined)} />
           </Grid>
         </Grid>

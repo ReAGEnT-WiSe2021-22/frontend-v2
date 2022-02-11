@@ -3,6 +3,7 @@
   "description": "This project is created using Direflow",
   "version": "1.0.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "scripts": {
     "start": "direflow-scripts start",
     "build": "direflow-scripts build",

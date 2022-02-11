@@ -21,9 +21,11 @@ export const TweetDetails: React.FC<TweetDetailsProps> = ({ tweet, onClear }) =>
     content = <Typography>No tweets dropped</Typography>;
   } else {
     content = (
-      <Box>
+      <Box maxWidth={1}>
         <Typography variant="caption">
-          <pre>{JSON.stringify(tweet, null, 2)}</pre>
+          <pre style={{ overflow: 'scroll' }}>
+            {JSON.stringify(tweet, null, 2)}
+          </pre>
         </Typography>
         <Button onClick={onClear}>Clear</Button>
       </Box>

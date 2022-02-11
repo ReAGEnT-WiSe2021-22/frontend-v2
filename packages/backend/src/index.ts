@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
+import axios from 'axios';
 import express from 'express';
 import { join } from 'path';
-import axios from 'axios';
 // eslint-disable-next-line import/no-unresolved
 import { PartyReputationUpstreamType } from './types';
 // eslint-disable-next-line import/no-unresolved
@@ -22,6 +22,21 @@ app.get('/api/party-reputation', async (_, res) => {
     const manipulatedData = manipulatePartyReputationUpstream(upstreamData);
 
     res.send({ msg: 'success', data: manipulatedData });
+
+    return;
+  } catch (e) {
+    res.status(400).send({ msg: 'Bad request', e });
+  }
+});
+
+app.get('/api/potential-party', async (_, res) => {
+  const externalUrl = 'http://reagent1.f4.htw-berlin.de:8081/tweets';
+
+  try {
+    const upstreamRequest = await axios.get(externalUrl);
+    const upstreamData = upstreamRequest.data;
+
+    res.send({ msg: 'success', data: upstreamData });
 
     return;
   } catch (e) {
